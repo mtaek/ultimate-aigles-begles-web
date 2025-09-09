@@ -61,6 +61,7 @@ header {
 header.scrolled {
     background: rgba(30, 58, 138, 0.95);
     padding: 10px 0;
+    opacity: 80%;
 }
 
 
