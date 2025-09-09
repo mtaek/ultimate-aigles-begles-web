@@ -5,288 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmarès - Les Aigles de Bègles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header (identique à index.html) -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" width="150"></a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html#accueil">Accueil</a></li>
-                    <li><a href="index.html#club">Le Club</a></li>
-                    <li><a href="index.html#ultimate">L'Ultimate</a></li>
-                    <li><a href="index.html#entrainements">Entraînements</a></li>
-                    <li><a href="palmares.html" class="active">Palmarès</a></li>
-                    <li><a href="index.html#terrains">Terrains</a></li>
-                    <li>
-                        <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
-                            Blog <i class="fas fa-external-link-alt external-icon"></i>
-                        </a>
-                    </li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-                <div class="burger"><i class="fas fa-bars"></i></div>
-            </nav>
+<!-- Header (identique à index.html) -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" width="150"></a>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#club">Le Club</a></li>
+                <li><a href="index.html#ultimate">L'Ultimate</a></li>
+                <li><a href="index.html#terrains">Terrains</a></li>
+                <li><a href="index.html#entrainements">Entraînements</a></li>
+                <li><a href="index.html#calendrier">Calendrier</a></li>
+                <li><a href="palmares.html" class="active">Palmarès</a></li>
+                <li>
+                    <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
+                        Blog <i class="fas fa-external-link-alt external-icon"></i>
+                    </a>
+                </li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger"><i class="fas fa-bars"></i></div>
+        </nav>
+    </div>
+</header>
 
-    <!-- 🏆 Contenu Principal du Palmarès -->
-    <main class="palmares-page">
-        <section class="page-header">
-            <div class="container">
-                <h1>Palmarès des Aigles de Bègles</h1>
-                <p class="subtitle">Nos performances depuis 2010, classées par saison et catégorie</p>
-                <br>
-                <p>L'ultimate se décline en trois variantes principales.</p>
-                <p>Le <b>beach</b> se joue à 5 contre 5 sur sable (75x25m), un jeu physique et adaptation au vent.</p>
-                <p>L'<b>indoor</b>, également en 5v5 mais en gymnase, offre un jeu très rapide et technique.</p>
-                <p>L'<b>outdoor</b> reste le format de référence en 7 contre 7 sur grand terrain d'herbe (100x37m), privilégiant l'endurance et la stratégie collective.</p>
-                <p>Chaque format développe des qualités spécifiques tout en conservant l'esprit fair-play de l'ultimate.</p>
-            </div>
-        </section>
-
-        <section class="palmares-content">
-            <div class="container">
-                <!-- Filtres -->
-                <div class="palmares-filters">
-                    <div class="filter-group">
-                        <label for="saison-filter">Saison :</label>
-                        <select id="saison-filter">
-                            <option value="all">Toutes</option>
-                            <option value="2023-2024">2023-2024</option>
-                            <option value="2022-2023">2022-2023</option>
-                            <option value="2021-2022">2021-2022</option>
-                            <option value="2020-2021">2020-2021</option>
-                            <option value="2019-2020">2019-2020</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="terrain-filter">Terrain :</label>
-                        <select id="terrain-filter">
-                            <option value="all">Tous</option>
-                            <option value="outdoor">Outdoor</option>
-                            <option value="indoor">Indoor</option>
-                            <option value="beach">Beach</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="categorie-filter">Catégorie :</label>
-                        <select id="categorie-filter">
-                            <option value="all">Toutes</option>
-                            <option value="open">Open</option>
-                            <option value="mixte">Mixte</option>
-                            <option value="feminin">Féminin</option>
-                            <option value="junior">Junior</option>
-                            <option value="master">Master</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Palmarès par Saison -->
-                <div class="saisons-container">
-                    <!-- Saison 2023-2024 -->
-                    <div class="saison" data-saison="2023-2024">
-                        <h2 class="saison-title">Saison 2023-2024</h2>
-
-                        <!-- Outdoor -->
-                        <div class="terrain-group" data-terrain="outdoor">
-                            <h3><i class="fas fa-tree"></i> Outdoor</h3>
-
-                            <div class="categorie" data-categorie="open">
-                                <h4>Open</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Championnat Régional Nouvelle-Aquitaine <span class="date">Juin 2024</span></h5>
-                                        <span class="rank gold">🥇 1ère place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Victoire en finale contre les Pirates de Poitiers (15-12). Qualification pour les play-offs nationaux.</p>
-                                        <div class="photos">
-                                            <img src="assets/palmares/2024-regional-open.jpg" alt="Équipe Open Championne Régionale 2024" loading="lazy">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Tournoi de Bordeaux <span class="date">Avril 2024</span></h5>
-                                        <span class="rank silver">🥈 2ème place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Finale perdue contre les Ultimate Falcons (13-15) après une belle remontée en demi-finale.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="categorie" data-categorie="mixte">
-                                <h4>Mixte</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Coupe de France Mixte <span class="date">Mai 2024</span></h5>
-                                        <span class="rank bronze">🥉 3ème place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Première médaille nationale pour l'équipe mixte ! Victoire contre les Sharks de Lyon en petite finale.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Beach -->
-                        <div class="terrain-group" data-terrain="beach">
-                            <h3><i class="fas fa-umbrella-beach"></i> Beach</h3>
-
-                            <div class="categorie" data-categorie="open">
-                                <h4>Open</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Beach Ultimate Tour - Étape de Biarritz <span class="date">Juillet 2023</span></h5>
-                                        <span class="rank gold">🥇 1ère place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Victoire en finale contre les Sunburners de Montpelier (13-10) sous 30°C !</p>
-                                        <div class="photos">
-                                            <img src="assets/palmares/2023-beach-open.jpg" alt="Équipe Beach Championne 2023" loading="lazy">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Saison 2022-2023 -->
-                    <div class="saison" data-saison="2022-2023">
-                        <h2 class="saison-title">Saison 2022-2023</h2>
-
-                        <div class="terrain-group" data-terrain="outdoor">
-                            <h3><i class="fas fa-tree"></i> Outdoor</h3>
-
-                            <div class="categorie" data-categorie="open">
-                                <h4>Open</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Championnat Régional <span class="date">Juin 2023</span></h5>
-                                        <span class="rank silver">🥈 2ème place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Finale perdue contre les Pirates de Poitiers (12-14).</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="categorie" data-categorie="feminin">
-                                <h4>Féminin</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Tournoi Féminin de Toulouse <span class="date">Mars 2023</span></h5>
-                                        <span class="rank gold">🥇 1ère place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Première victoire en tournoi féminin pour les Aigles !</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="terrain-group" data-terrain="indoor">
-                            <h3><i class="fas fa-home"></i> Indoor</h3>
-
-                            <div class="categorie" data-categorie="mixte">
-                                <h4>Mixte</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Championnat Indoor Régional <span class="date">Février 2023</span></h5>
-                                        <span class="rank bronze">🥉 3ème place</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Saison 2021-2022 -->
-                    <div class="saison" data-saison="2021-2022">
-                        <h2 class="saison-title">Saison 2021-2022</h2>
-
-                        <div class="terrain-group" data-terrain="outdoor">
-                            <h3><i class="fas fa-tree"></i> Outdoor</h3>
-
-                            <div class="categorie" data-categorie="open">
-                                <h4>Open</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Championnat Régional <span class="date">Juin 2022</span></h5>
-                                        <span class="rank bronze">🥉 3ème place</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="categorie" data-categorie="junior">
-                                <h4>Junior</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Tournoi Junior de Bordeaux <span class="date">Avril 2022</span></h5>
-                                        <span class="rank gold">🥇 1ère place</span>
-                                    </div>
-                                    <div class="tournament-details">
-                                        <p>Victoire des juniors U17 contre les équipes de Talence et Mérignac.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Saison 2020-2021 -->
-                    <div class="saison" data-saison="2020-2021">
-                        <h2 class="saison-title">Saison 2020-2021</h2>
-                        <p class="saison-note">Saison perturbée par la pandémie. Peu de compétitions officielles.</p>
-
-                        <div class="terrain-group" data-terrain="outdoor">
-                            <h3><i class="fas fa-tree"></i> Outdoor</h3>
-
-                            <div class="categorie" data-categorie="master">
-                                <h4>Master</h4>
-                                <div class="tournament">
-                                    <div class="tournament-header">
-                                        <h5>Tournoi Vétérans Aquitaine <span class="date">Septembre 2020</span></h5>
-                                        <span class="rank gold">🥇 1ère place</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer (identique à index.html) -->
-    <footer>
+<!-- 🏆 Contenu Principal du Palmarès -->
+<main class="palmares-page">
+    <section class="page-header">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" width="120">
-                </div>
-                <div class="footer-links">
-                    <a href="index.html#accueil">Accueil</a>
-                    <a href="index.html#club">Le Club</a>
-                    <a href="index.html#ultimate">L'Ultimate</a>
-                    <a href="index.html#entrainements">Entraînements</a>
-                    <a href="palmares.html">Palmarès</a>
-                    <a href="index.html#terrains">Terrains</a>
-                    <a href="https://ultimatebegles.blogspot.com/" target="_blank">Blog</a>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>Les Aigles de Bègles</p>
+            <h1>Palmarès des Aigles de Bègles</h1>
+            <p class="subtitle">Nos performances depuis 2010, classées par saison et catégorie</p>
+            <br>
+                Le club propose des équipes pour tous les profils :
+            <div class="equipes-list">
+                <p><i class="fas fa-female"></i> <strong>Féminin</strong> : 100% féminine</p>
+                <p><i class="fas fa-male"></i> <strong>Open</strong> : Principalement masculin (ouvert aux femmes)</p>
+                <p>
+                    <i class="fas fa-venus-mars"></i> <strong>Mixte</strong> :
+                    <span class="ratio"><i class="fas fa-male"></i>4/<i class="fas fa-female"></i>3</span> (7v7) ou
+                    <span class="ratio"><i class="fas fa-male"></i>3/<i class="fas fa-female"></i>2</span> (5v5)
+                </p>
+                <p><i class="fas fa-child"></i> <strong>Junior</strong> : U13/U15/U17/U20</p>
+                <p><i class="fas fa-user-clock"></i> <strong>Master</strong> : 30+ ans</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="palmares-content">
+        <div class="container">
+            <!-- Filtres -->
+            <div class="palmares-filters">
+                <div class="filter-group">
+                    <label for="saison-filter">Saison :</label>
+                    <select id="saison-filter">
+                        <option value="all">Toutes</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2022-2023">2022-2023</option>
+                        <option value="2021-2022">2021-2022</option>
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2019-2020">2019-2020</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="terrain-filter">Terrain :</label>
+                    <select id="terrain-filter">
+                        <option value="all">Tous</option>
+                        <option value="outdoor">Outdoor</option>
+                        <option value="indoor">Indoor</option>
+                        <option value="beach">Beach</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="categorie-filter">Catégorie :</label>
+                    <select id="categorie-filter">
+                        <option value="all">Toutes</option>
+                        <option value="open">Open</option>
+                        <option value="mixte">Mixte</option>
+                        <option value="feminin">Féminin</option>
+                        <option value="junior">Junior</option>
+                        <option value="master">Master</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Palmarès par Saison -->
+            <div class="saisons-container">
+                <!-- Saison 2023-2024 -->
+                <div class="saison" data-saison="2023-2024">
+                    <h2 class="saison-title">Saison 2023-2024</h2>
+
+                    <!-- Outdoor -->
+                    <div class="terrain-group" data-terrain="outdoor">
+                        <h3><i class="fas fa-tree"></i> Outdoor</h3>
+
+                        <div class="categorie" data-categorie="open">
+                            <h4>Open</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Championnat Régional Nouvelle-Aquitaine <span class="date">Juin 2024</span></h5>
+                                    <span class="rank gold">🥇 1ère place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Victoire en finale contre les Pirates de Poitiers (15-12). Qualification pour les
+                                        play-offs nationaux.</p>
+                                    <div class="photos">
+                                        <!--                                            <img src="assets/palmares/2024-regional-open.jpg" alt="Équipe Open Championne Régionale 2024" loading="lazy">-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Tournoi de Bordeaux <span class="date">Avril 2024</span></h5>
+                                    <span class="rank silver">🥈 2ème place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Finale perdue contre les Ultimate Falcons (13-15) après une belle remontée en
+                                        demi-finale.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="categorie" data-categorie="mixte">
+                            <h4>Mixte</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Coupe de France Mixte <span class="date">Mai 2024</span></h5>
+                                    <span class="rank bronze">🥉 3ème place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Première médaille nationale pour l'équipe mixte ! Victoire contre les Sharks de
+                                        Lyon en petite finale.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Beach -->
+                    <div class="terrain-group" data-terrain="beach">
+                        <h3><i class="fas fa-umbrella-beach"></i> Beach</h3>
+
+                        <div class="categorie" data-categorie="open">
+                            <h4>Open</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Beach Ultimate Tour - Étape de Biarritz <span class="date">Juillet 2023</span>
+                                    </h5>
+                                    <span class="rank gold">🥇 1ère place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Victoire en finale contre les Sunburners de Montpelier (13-10) sous 30°C !</p>
+                                    <div class="photos">
+                                        <!--                                            <img src="assets/palmares/2023-beach-open.jpg" alt="Équipe Beach Championne 2023" loading="lazy">-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saison 2022-2023 -->
+                <div class="saison" data-saison="2022-2023">
+                    <h2 class="saison-title">Saison 2022-2023</h2>
+
+                    <div class="terrain-group" data-terrain="outdoor">
+                        <h3><i class="fas fa-tree"></i> Outdoor</h3>
+
+                        <div class="categorie" data-categorie="open">
+                            <h4>Open</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Championnat Régional <span class="date">Juin 2023</span></h5>
+                                    <span class="rank silver">🥈 2ème place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Finale perdue contre les Pirates de Poitiers (12-14).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="categorie" data-categorie="feminin">
+                            <h4>Féminin</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Tournoi Féminin de Toulouse <span class="date">Mars 2023</span></h5>
+                                    <span class="rank gold">🥇 1ère place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Première victoire en tournoi féminin pour les Aigles !</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="terrain-group" data-terrain="indoor">
+                        <h3><i class="fas fa-home"></i> Indoor</h3>
+
+                        <div class="categorie" data-categorie="mixte">
+                            <h4>Mixte</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Championnat Indoor Régional <span class="date">Février 2023</span></h5>
+                                    <span class="rank bronze">🥉 3ème place</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saison 2021-2022 -->
+                <div class="saison" data-saison="2021-2022">
+                    <h2 class="saison-title">Saison 2021-2022</h2>
+
+                    <div class="terrain-group" data-terrain="outdoor">
+                        <h3><i class="fas fa-tree"></i> Outdoor</h3>
+
+                        <div class="categorie" data-categorie="open">
+                            <h4>Open</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Championnat Régional <span class="date">Juin 2022</span></h5>
+                                    <span class="rank bronze">🥉 3ème place</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="categorie" data-categorie="junior">
+                            <h4>Junior</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Tournoi Junior de Bordeaux <span class="date">Avril 2022</span></h5>
+                                    <span class="rank gold">🥇 1ère place</span>
+                                </div>
+                                <div class="tournament-details">
+                                    <p>Victoire des juniors U17 contre les équipes de Talence et Mérignac.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saison 2020-2021 -->
+                <div class="saison" data-saison="2020-2021">
+                    <h2 class="saison-title">Saison 2020-2021</h2>
+                    <p class="saison-note">Saison perturbée par la pandémie. Peu de compétitions officielles.</p>
+
+                    <div class="terrain-group" data-terrain="outdoor">
+                        <h3><i class="fas fa-tree"></i> Outdoor</h3>
+
+                        <div class="categorie" data-categorie="master">
+                            <h4>Master</h4>
+                            <div class="tournament">
+                                <div class="tournament-header">
+                                    <h5>Tournoi Vétérans Aquitaine <span class="date">Septembre 2020</span></h5>
+                                    <span class="rank gold">🥇 1ère place</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer (identique à index.html) -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" width="120">
+            </div>
+            <div class="footer-links">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="index.html#club">Le Club</a>
+                <a href="index.html#ultimate">L'Ultimate</a>
+                <a href="index.html#terrains">Terrains</a>
+                <a href="index.html#entrainements">Entraînements</a>
+                <a href="index.html#calendrier">Calendrier</a>
+                <a href="palmares.html">Palmarès</a>
+                <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">Blog <i
+                        class="fas fa-external-link-alt external-icon"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Les Aigles de Bègles</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

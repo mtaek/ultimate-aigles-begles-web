@@ -54,16 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Déclencher au scroll et au chargement
     window.addEventListener('scroll', checkSections);
     checkSections();
-
-    // Formulaire de contact (simulation)
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons bientôt.');
-            contactForm.reset();
-        });
-    }
 });
 
 // ========== PALMARÈS FILTERS ==========
@@ -138,6 +128,55 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Gestion des onglets du calendrier
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
 
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Retire la classe active de tous les boutons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            // Ajoute la classe active au bouton cliqué
+            this.classList.add('active');
+
+            // Ici, vous pourriez ajouter une logique pour filtrer les événements
+            // (nécessiterait une API Google Calendar ou un traitement côté serveur)
+            console.log("Filtre appliqué :", this.dataset.filter);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Protection de l'email
+    const emailElements = document.querySelectorAll('.email-protected');
+    emailElements.forEach(el => {
+        const user = el.getAttribute('data-user');
+        const domain = el.getAttribute('data-domain');
+        const tld = el.getAttribute('data-tld');
+        const email = `${user}@${domain}.${tld}`;
+
+        const link = document.createElement('a');
+        link.href = `mailto:${email}`;
+        link.textContent = email;
+        link.className = 'email-link';
+        link.style.cursor = 'pointer';
+
+        el.querySelector('.email-link').replaceWith(link);
+    });
+
+    // Effets hover (optionnel, si le CSS :hover ne suffit pas)
+    const options = document.querySelectorAll('.contact-option');
+    options.forEach(option => {
+        option.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+
+        option.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
+});
 
 
