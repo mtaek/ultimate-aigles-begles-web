@@ -1266,3 +1266,42 @@ footer {
 #palmares i {
     margin-left: 8px;
 }
+
+/* Style général de la section avis */
+
+
+/* Style des cartes d'avis */
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-stars {
+    color: #ffc107; /* Jaune pour les étoiles */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #555;
+}
+
+.review-date {
+    font-weight: normal;
+    font-size: 0.9rem;
+}
