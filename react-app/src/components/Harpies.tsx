@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSEO } from '../hooks/useSEO';
 import { useReveal } from '../hooks/useReveal';
 
@@ -8,7 +8,6 @@ const Harpies: React.FC = () => {
   useSEO({
     title: 'Les Harpies - Tournoi 100% Féminin Indoor | Les Aigles de Bègles',
     description: 'Le tournoi Les Harpies est un tournoi indoor 100% féminin organisé chaque année par Les Aigles de Bègles. Ambiance rock and roll, esprit sportif et compétition de haut niveau.',
-    keywords: 'harpies, tournoi féminin, ultimate féminin, indoor, bègles, sport féminin, compétition, tournoi begles, ultimate frisbee féminin',
   });
 
   return (

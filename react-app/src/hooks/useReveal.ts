@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 export const useReveal = () => {
   useEffect(() => {
@@ -15,5 +15,22 @@ export const useReveal = () => {
     }, { threshold: 0.15 });
     items.forEach(el => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  return useCallback((node: HTMLElement | null) => {
+    if (node) {
+      node.classList.add('reveal');
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            entry.target.classList.remove('reveal');
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(node);
+    }
   }, []);
 };
