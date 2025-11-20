@@ -1,0 +1,17 @@
+services:
+  ultimate-aigles-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ultimate-aigles-begles
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
+      - webapp-network
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+networks:
+  webapp-network:
+    driver: bridge
