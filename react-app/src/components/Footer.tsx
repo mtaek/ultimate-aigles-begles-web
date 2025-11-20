@@ -20,8 +20,8 @@ const Footer: React.FC = () => (
             <a href="/#terrains">Terrains</a>
             <a href="/#entrainements">Entraînements</a>
             <a href="/#calendrier">Calendrier</a>
-            <a href="/palmares">Palmarès</a>
-            <a href="/harpies">Harpies</a>
+            {/*<a href="/palmares">Palmarès</a>*/}
+            {/*<a href="/harpies">Harpies</a>*/}
             <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
               Blog <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>

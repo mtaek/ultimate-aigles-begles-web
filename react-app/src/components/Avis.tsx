@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
 const reviews = [
-  { text: '"Super sport, ancienne basketteuse, j\'apprécie le côté cardio et mixte! Très bon accueil, club dynamique avec des organisations d\'évènements réguliers. Facilement accessible de Bordeaux ou de la CUB."', author: 'Marine R.', date: 'Septembre 2025' },
-  { text: '"Pour faire de l\'Ultimate à Bordeaux et dans ses alentours, c\'est le club parfait ! Tous les niveaux peuvent jouer des juniors (10 ans) aux adultes en compétition ou en loisir. Ambiance trop cool !"', author: 'Loïc F.', date: 'Septembre 2025' },
-  { text: '"Club fabuleux d\'un sport fabuleux qui conviendra aussi bien aux débutants qu\'aux plus confirmés, en mode loisir ou compétition, et pour toutes les tranches d\'âge !"', author: 'Jérémie M.', date: 'Octobre 2025' },
-  { text: '"Super ambiance le lundi soir et les débutants sont toujours bien accueillis"', author: 'Alice P.', date: 'Octobre 2025' },
-  { text: '"Une super ambiance dans ce club d\'ultimate frisbee de Bègles, idéal pour débuter dans ce sport ou se perfectionner ! On est très bien intégré, pour faire de la compétition comme pour une pratique plus récréative ! Les entrainements ont lieu toute l\'année sur terrain synthétique ou l\'été sur sable. C\'est un des rares sports où on peut jouer en catégorie mixte (hommes et femmes ensembles): moi j\'adore !"', author: 'Lucille F.', date: 'Novembre 2025' },
+  { 
+    text: '"Super sport, ancienne basketteuse, j\'apprécie le côté cardio et mixte! Très bon accueil, club dynamique avec des organisations d\'évènements réguliers. Facilement accessible de Bordeaux ou de la CUB."', 
+    author: 'Marine R.', 
+    date: 'Septembre 2025' 
+  },
+  { 
+    text: '"Pour faire de l\'Ultimate à Bordeaux et dans ses alentours, c\'est le club parfait ! Tous les niveaux peuvent jouer des juniors (10 ans) aux adultes en compétition ou en loisir. Ambiance trop cool !"', 
+    author: 'Loïc F.', 
+    date: 'Septembre 2025' 
+  },
+  { 
+    text: '"Club fabuleux d\'un sport fabuleux qui conviendra aussi bien aux débutants qu\'aux plus confirmés, en mode loisir ou compétition, et pour toutes les tranches d\'âge !"', 
+    author: 'Jérémie M.', 
+    date: 'Octobre 2025' 
+  },
+  { 
+    text: '"Super ambiance le lundi soir et les débutants sont toujours bien accueillis"', 
+    author: 'Alice P.', 
+    date: 'Octobre 2025' 
+  },
+  { 
+    text: '"Une super ambiance dans ce club d\'ultimate frisbee de Bègles, idéal pour débuter dans ce sport ou se perfectionner ! On est très bien intégré, pour faire de la compétition comme pour une pratique plus récréative ! Les entrainements ont lieu toute l\'année sur terrain synthétique ou l\'été sur sable. C\'est un des rares sports où on peut jouer en catégorie mixte (hommes et femmes ensembles): moi j\'adore !"', 
+    author: 'Lucille F.', 
+    date: 'Novembre 2025' 
+  },
 ];
 
 const Avis: React.FC = () => {

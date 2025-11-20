@@ -37,12 +37,12 @@ const Header: React.FC = () => {
             <li><a href="/#terrains" onClick={(e) => smoothScroll(e, '#terrains')} className="hover:text-primary">Terrains</a></li>
             <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary">Entraînements</a></li>
             <li><a href="/#calendrier" onClick={(e) => smoothScroll(e, '#calendrier')} className="hover:text-primary">Calendrier</a></li>
-            <li>
+            {/*<li>
               <NavLink to="/palmares" className={({isActive}) => `hover:text-primary ${isActive ? 'text-primary underline' : ''}`}>Palmarès</NavLink>
             </li>
             <li>
               <NavLink to="/harpies" className={({isActive}) => `text-secondary hover:text-primary ${isActive ? 'underline' : ''}`}>Harpies</NavLink>
-            </li>
+            </li>*/}
             <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary">Contact</a></li>
             <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
           </ul>

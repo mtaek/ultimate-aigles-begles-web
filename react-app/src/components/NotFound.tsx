@@ -12,7 +12,7 @@ const NotFound: React.FC = () => {
       <div className="container max-w-2xl text-center">
         <div className="bg-white rounded-2xl shadow-2xl p-12">
           {/* Logo */}
-          <div className="mb-8">
+          <div>
             <img 
               src="/images/logo_aigles_2025.png" 
               alt="Logo Les Aigles de Bègles" 
@@ -21,7 +21,7 @@ const NotFound: React.FC = () => {
           </div>
 
           {/* 404 */}
-          <h1 className="text-9xl font-bold text-primary mb-4">404</h1>
+          <h1 className="text-9xl font-bold text-primary">404</h1>
           
           {/* Message */}
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
