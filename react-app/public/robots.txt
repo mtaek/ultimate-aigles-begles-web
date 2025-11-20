@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ultimatebegles.fr/sitemap.xml
+
+# Disallow admin or backend routes (if any in the future)
+# Disallow: /admin

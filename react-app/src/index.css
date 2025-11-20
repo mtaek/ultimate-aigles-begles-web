@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom helpers reproduisant certains styles originaux */
+@layer components {
+  .btn-primary { @apply inline-block bg-primary text-white px-6 py-3 rounded-md shadow hover:bg-secondary transition; }
+  .section { @apply py-16; }
+  .section-header h2 { @apply text-3xl font-bold mb-4 text-center text-secondary; }
+  .container { @apply max-w-6xl mx-auto px-4; }
+  .feature-card { @apply bg-white rounded-lg shadow p-6 flex flex-col items-center text-center space-y-3; }
+  .training-card { @apply grid md:grid-cols-2 gap-6 bg-white rounded-lg shadow p-6 mb-8; }
+  .contact-option { @apply flex items-center gap-4 bg-white rounded-lg shadow p-4 hover:shadow-md transition; }
+  .option-icon { @apply text-2xl text-primary; }
+  footer { @apply bg-gray-900 text-gray-200 py-10 mt-16; }
+}
+
+body { @apply font-sans bg-gray-50 text-gray-800; }
+html { scroll-behavior: smooth; }
+header { @apply bg-white shadow sticky top-0 z-50; }
+nav ul { @apply hidden md:flex gap-6; }
+nav a { @apply text-gray-700 hover:text-primary font-semibold; }
+.burger { @apply md:hidden cursor-pointer text-2xl; }
+.hero { @apply text-white text-center; min-height: 100vh; display: flex; align-items: center; background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('/images/banniere-lundi.jpg') no-repeat center center/cover; background-size: cover; }
+.hero h1 { @apply text-5xl font-bold mb-4; }
+.hero .slogan { @apply text-xl mb-6; }
+.email-link { @apply text-primary underline cursor-pointer; }
+.external-icon { @apply ml-1 text-xs; }
+
+/* Scroll offset pour compenser le header sticky */
+section[id] { scroll-margin-top: 80px; }
+
+/* Reveal initial state */
+.reveal { @apply opacity-0 translate-y-5; }
+.revealed { @apply opacity-100 translate-y-0; animation: fadeInUp; }
+
+.feature-card { @apply transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-lg; }
+.training-card { @apply transition-shadow duration-300 hover:shadow-lg; }
+nav a { @apply transition-colors duration-200; }
