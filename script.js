@@ -147,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Protection de l'email
+
+    // Protection et copie de l'email
     const emailElements = document.querySelectorAll('.email-protected');
     emailElements.forEach(el => {
         const user = el.getAttribute('data-user');
@@ -155,28 +156,50 @@ document.addEventListener('DOMContentLoaded', function() {
         const tld = el.getAttribute('data-tld');
         const email = `${user}@${domain}.${tld}`;
 
-        const link = document.createElement('a');
-        link.href = `mailto:${email}`;
+        const link = el.querySelector('.email-link');
         link.textContent = email;
-        link.className = 'email-link';
-        link.style.cursor = 'pointer';
-
-        el.querySelector('.email-link').replaceWith(link);
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(email).then(function () {
+                        link.textContent = 'Email copié !';
+                        setTimeout(function () {
+                            link.textContent = email;
+                        }, 2000);
+                    });
+                } else {
+                    // Fallback pour vieux navigateurs
+                    const textarea = document.createElement('textarea');
+                    textarea.value = email;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        link.textContent = 'Email copié !';
+                        setTimeout(function () {
+                            link.textContent = email;
+                        }, 2000);
+                    } catch (err) {}
+                    document.body.removeChild(textarea);
+                }
+            });
+        }
     });
 
     // Effets hover (optionnel, si le CSS :hover ne suffit pas)
-    const options = document.querySelectorAll('.contact-option');
-    options.forEach(option => {
-        option.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        });
-
-        option.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        });
-    });
+    // const options = document.querySelectorAll('.contact-option');
+    // options.forEach(option => {
+    //     option.addEventListener('mouseenter', function() {
+    //         this.style.transform = 'translateY(-2px)';
+    //         this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+    //     });
+    //
+    //     option.addEventListener('mouseleave', function() {
+    //         this.style.transform = '';
+    //         this.style.boxShadow = '';
+    //     });
+    // });
 });
 
 
