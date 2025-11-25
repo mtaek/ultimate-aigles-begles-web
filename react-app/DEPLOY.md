@@ -20,8 +20,8 @@ git push origin dev
 # Se connecter au serveur
 ssh root@aiglesdebegles
 
-# Aller dans le dossier
-cd /webapp/ultimate-aigles-begles-web/react-app
+# Aller dans le dossier du projet
+cd /path/to/ultimate-aigles-begles-web/react-app
 
 # Pull les derniers changements
 git pull origin dev
@@ -42,13 +42,13 @@ Ajouter dans votre configuration nginx :
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name aiglesdebegles.aquilenet.fr;
+    server_name aiglesdebegles.aquilenet.fr akaria.fr ultimatebegles.fr;
 
     ssl_certificate /path/to/cert.pem;
     ssl_certificate_key /path/to/key.pem;
 
-    location /webapp/ {
-        proxy_pass http://localhost:8080/webapp/;
+    location / {
+        proxy_pass http://localhost:8080/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -89,5 +89,7 @@ docker-compose up -d --build --force-recreate
 docker system prune -a
 ```
 
-## URL de l'application
-https://aiglesdebegles.aquilenet.fr/webapp/
+## URLs de l'application
+- https://aiglesdebegles.aquilenet.fr/
+- https://akaria.fr/
+- https://ultimatebegles.fr/
