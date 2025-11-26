@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const reviews = [
   { 
-    text: '"Super sport, ancienne basketteuse, j\'apprécie le côté cardio et mixte! Très bon accueil, club dynamique avec des organisations d\'évènements réguliers. Facilement accessible de Bordeaux ou de la CUB."', 
+    text: '"Super sport, ancienne basketteuse, j\'apprécie le côté cardio et mixte! Très bon accueil, club dynamique avec des organisations d\'événements réguliers. Facilement accessible de Bordeaux ou de la CUB."', 
     author: 'Marine R.', 
     date: 'Septembre 2025' 
   },
@@ -22,7 +22,7 @@ const reviews = [
     date: 'Octobre 2025' 
   },
   { 
-    text: '"Une super ambiance dans ce club d\'ultimate frisbee de Bègles, idéal pour débuter dans ce sport ou se perfectionner ! On est très bien intégré, pour faire de la compétition comme pour une pratique plus récréative ! Les entrainements ont lieu toute l\'année sur terrain synthétique ou l\'été sur sable. C\'est un des rares sports où on peut jouer en catégorie mixte (hommes et femmes ensembles): moi j\'adore !"', 
+    text: '"Une super ambiance dans ce club d\'ultimate frisbee de Bègles, idéal pour débuter dans ce sport ou se perfectionner ! On est très bien intégré, pour faire de la compétition comme pour une pratique plus récréative ! Les entraînements ont lieu toute l\'année sur terrain synthétique ou l\'été sur sable. C\'est un des rares sports où on peut jouer en catégorie mixte (hommes et femmes ensemble) : moi j\'adore !"', 
     author: 'Lucille F.', 
     date: 'Novembre 2025' 
   },

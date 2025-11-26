@@ -161,7 +161,7 @@ const Palmares: React.FC = () => {
     <main className="section bg-gray-50 min-h-screen" id="palmares" data-reveal>
       <div className="container">
         <h1 className="text-4xl font-bold mb-2 text-secondary">Palmarès des Aigles de Bègles</h1>
-        <p className="text-gray-600 mb-4">Nos performances depuis 2022, classées par saison et catégorie</p>
+        <p className="text-gray-600 mb-4">Nos performances depuis 2022, classées par saison et catégorie.</p>
         
         <div className="mb-8 p-4 bg-white rounded shadow">
           <p className="mb-3 font-semibold">Le club propose des équipes pour tous les profils :</p>
