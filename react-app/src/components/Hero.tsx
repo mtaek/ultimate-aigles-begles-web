@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 const Hero: React.FC = () => {
+  useSEO({
+    title: 'Accueil',
+    description: 'Club d\'Ultimate Frisbee à Bègles près de Bordeaux. Entraînements tous niveaux : débutants, loisir, compétition. Sport mixte et convivial. Rejoignez-nous !',
+  });
+
   React.useEffect(() => {
     const img = new Image();
     img.src = '/images/banniere-lundi.jpg';
