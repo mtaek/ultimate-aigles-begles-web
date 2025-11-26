@@ -17,6 +17,7 @@ const HarpiesPreview: React.FC = () => {
                   src="/images/harpies.png" 
                   alt="Logo Les Harpies" 
                   className="w-56 h-auto object-contain relative z-10"
+                  loading="lazy"
                 />
               </div>
             </div>

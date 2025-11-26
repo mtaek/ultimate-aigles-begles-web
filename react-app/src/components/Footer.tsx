@@ -7,7 +7,7 @@ const Footer: React.FC = () => (
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="/#accueil" className="cursor-pointer">
-            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-32 hover:opacity-80 transition" />
+            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-32 hover:opacity-80 transition" loading="lazy" />
           </a>
         </div>
 
@@ -56,22 +56,22 @@ const Footer: React.FC = () => (
           {/* Partenaires */}
           <div className="flex flex-wrap items-center gap-6">
             <a href="https://www.zulip.com/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/zulip.png" alt="Zulip" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/zulip.png" alt="Zulip" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
             <a href="https://www.gironde.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/logo-gironde.png" alt="Département de la Gironde" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/logo-gironde.png" alt="Département de la Gironde" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
             <a href="https://www.begles.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/logo-ville-begles.jpg" alt="Ville de Bègles" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/logo-ville-begles.jpg" alt="Ville de Bègles" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
             <a href="https://liguenouvelle-aquitaine.ffdisque.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/LFDNA.png" alt="Ligue Flying Disc de Nouvelle-Aquitaine" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/LFDNA.png" alt="Ligue Flying Disc de Nouvelle-Aquitaine" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
             <a href="https://www.ffdf.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/FFDF.png" alt="Fédération Flying Disc France" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/FFDF.png" alt="Fédération Flying Disc France" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
             <a href="https://www.creditmutuel.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/credit-mutuel-du-sud-ouest.jpg" alt="Crédit Mutuel du Sud-Ouest" className="h-8 w-auto object-contain" />
+              <img src="/images/partenaires/credit-mutuel-du-sud-ouest.jpg" alt="Crédit Mutuel du Sud-Ouest" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
           </div>
         </div>

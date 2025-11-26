@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       <div className="container flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
           <a href="/#accueil" onClick={(e) => smoothScroll(e, '#accueil')} className="cursor-pointer">
-            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-12" />
+            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-12" loading="eager" />
           </a>
         </div>
         <nav className="flex items-center gap-4">

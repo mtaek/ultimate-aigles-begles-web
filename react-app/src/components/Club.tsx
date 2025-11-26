@@ -18,6 +18,7 @@ const Club: React.FC = () => (
             src="/images/logo_aigles_2025.png" 
             alt="Logo Les Aigles de Bègles" 
             className="w-56 h-auto object-contain relative z-10"
+            loading="lazy"
           />
         </div>
       </div>
