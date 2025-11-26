@@ -6,11 +6,12 @@ import Ultimate from './components/Ultimate';
 import Terrains from './components/Terrains';
 import Entrainements from './components/Entrainements';
 import Calendrier from './components/Calendrier';
+import HarpiesPreview from './components/HarpiesPreview';
 import Avis from './components/Avis';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Palmares from './components/Palmares';
-import Harpies from './components/Harpies';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
@@ -97,15 +98,16 @@ const App: React.FC = () => {
         <Route path="/" element={<>
           <Hero />
           <Club />
+          <HarpiesPreview />
           <Ultimate />
           <Terrains />
           <Entrainements />
           <Calendrier />
           <Contact />
           <Avis />
+          <FAQ />
         </>} />
         <Route path="/palmares" element={<Palmares />} />
-        <Route path="/harpies" element={<Harpies />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

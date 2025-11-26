@@ -48,6 +48,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Section Les Harpies -->
+  <url>
+    <loc>https://ultimatebegles.fr/#harpies</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
   <!-- Section Contact -->
   <url>
     <loc>https://ultimatebegles.fr/#contact</loc>
@@ -59,14 +67,6 @@
   <!-- Page Palmarès -->
   <url>
     <loc>https://ultimatebegles.fr/palmares</loc>
-    <lastmod>2025-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Page Les Harpies -->
-  <url>
-    <loc>https://ultimatebegles.fr/harpies</loc>
     <lastmod>2025-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -31,22 +31,20 @@ const Header: React.FC = () => {
           </a>
         </div>
         <nav className="flex items-center gap-4">
-          <ul className={`md:flex gap-6 font-semibold items-center ${open ? 'flex flex-col absolute left-0 top-16 bg-white w-full p-6 shadow' : 'hidden'}`}>
-            <li><a href="/#club" onClick={(e) => smoothScroll(e, '#club')} className="hover:text-primary">Le Club</a></li>
-            <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary">L'Ultimate</a></li>
-            <li><a href="/#terrains" onClick={(e) => smoothScroll(e, '#terrains')} className="hover:text-primary">Terrains</a></li>
-            <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary">Entraînements</a></li>
-            <li><a href="/#calendrier" onClick={(e) => smoothScroll(e, '#calendrier')} className="hover:text-primary">Calendrier</a></li>
+          <ul className={`min-[900px]:flex gap-3 xl:gap-6 font-semibold items-center text-xs min-[900px]:text-sm xl:text-base ${open ? 'flex flex-col absolute left-0 top-16 bg-white w-full p-6 shadow z-50' : 'hidden'}`}>
+            <li><a href="/#club" onClick={(e) => smoothScroll(e, '#club')} className="hover:text-primary whitespace-nowrap">Le Club</a></li>
+            <li><a href="/#harpies" onClick={(e) => smoothScroll(e, '#harpies')} className="text-purple-600 hover:text-purple-700 whitespace-nowrap">Les Harpies</a></li>
+            <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary whitespace-nowrap">L'Ultimate</a></li>
+            <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary whitespace-nowrap">Entraînements</a></li>
             <li>
-              <NavLink to="/palmares" className={({isActive}) => `hover:text-primary ${isActive ? 'text-primary underline' : ''}`}>Palmarès</NavLink>
+              <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary underline' : ''}`}>Palmarès</NavLink>
             </li>
-            <li>
-              <NavLink to="/harpies" className={({isActive}) => `text-secondary hover:text-primary ${isActive ? 'underline' : ''}`}>Les Harpies</NavLink>
-            </li>
-            <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary">Contact</a></li>
-            <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
+            <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary whitespace-nowrap">Contact</a></li>
+            <li><a href="/#faq" onClick={(e) => smoothScroll(e, '#faq')} className="hover:text-primary whitespace-nowrap">FAQ</a></li>
+            <li><a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Boutique <i className="fas fa-external-link-alt external-icon" /></a></li>
+            <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
           </ul>
-          <div className="burger md:hidden" onClick={() => setOpen(o => !o)}>
+          <div className="burger min-[900px]:hidden" onClick={() => setOpen(o => !o)}>
             <i className="fas fa-bars"></i>
           </div>
         </nav>

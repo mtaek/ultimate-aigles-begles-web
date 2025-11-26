@@ -8,8 +8,18 @@ const Club: React.FC = () => (
         <p className="mb-4">Fondé en 2018, les Aigles de Bègles est un club d'Ultimate Frisbee basé à Bègles, près de Bordeaux. Nous accueillons des joueurs de tous niveaux, du débutant au confirmé, dans une ambiance conviviale et sportive.</p>
         <p>Notre objectif : promouvoir l'Ultimate Frisbee en Nouvelle-Aquitaine tout en développant l'esprit d'équipe et le fair-play.</p>
       </div>
-      <div>
-        <img src="/images/banniere.jpg" alt="Équipe des Aigles de Bègles" className="rounded-lg shadow" />
+      <div className="flex justify-center">
+        <div className="relative w-80 h-80 bg-white rounded-full shadow-2xl flex items-center justify-center" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.2), inset 0 0 30px rgba(0,0,0,0.05)' }}>
+          {/* Effet de relief du frisbee */}
+          <div className="absolute inset-0 rounded-full" style={{ 
+            background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 50%), radial-gradient(circle at 70% 70%, rgba(0,0,0,0.1), transparent 50%)'
+          }}></div>
+          <img 
+            src="/images/logo_aigles_2025.png" 
+            alt="Logo Les Aigles de Bègles" 
+            className="w-56 h-auto object-contain relative z-10"
+          />
+        </div>
       </div>
     </div>
   </section>

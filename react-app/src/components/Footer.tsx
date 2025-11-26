@@ -16,12 +16,15 @@ const Footer: React.FC = () => (
           <h3 className="font-bold text-white mb-2">Navigation</h3>
           <div className="flex flex-wrap gap-4 footer-links text-sm">
             <a href="/#club">Le Club</a>
+            <a href="/#harpies">Les Harpies</a>
             <a href="/#ultimate">L'Ultimate</a>
-            <a href="/#terrains">Terrains</a>
             <a href="/#entrainements">Entraînements</a>
-            <a href="/#calendrier">Calendrier</a>
             <a href="/palmares">Palmarès</a>
-            <a href="/harpies">Les Harpies</a>
+            <a href="/#contact">Contact</a>
+            <a href="/#faq">FAQ</a>
+            <a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer">
+              Boutique <i className="fas fa-external-link-alt text-xs ml-1" />
+            </a>
             <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
               Blog <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>
