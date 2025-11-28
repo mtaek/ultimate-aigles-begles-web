@@ -30,6 +30,35 @@ nav a { @apply text-gray-700 hover:text-primary font-semibold; }
 /* Scroll offset pour compenser le header sticky */
 section[id] { scroll-margin-top: 80px; }
 
+/* Animation notification */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes slideIn {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
 /* Reveal initial state */
 .reveal { @apply opacity-0 translate-y-5; }
 .revealed { @apply opacity-100 translate-y-0; animation: fadeInUp; }

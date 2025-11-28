@@ -34,7 +34,7 @@ const Avis: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-    }, 5000); // Change d'avis toutes les 5 secondes
+    }, 10000); // Change d'avis toutes les 10 secondes
 
     return () => clearInterval(interval);
   }, []);
