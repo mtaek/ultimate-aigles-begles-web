@@ -37,7 +37,10 @@ const Terrains: React.FC = () => (
   <section id="terrains" className="section" data-reveal>
     <div className="container">
       <div className="section-header mb-8 text-center">
-        <h2 className="text-secondary">Les Différents Terrains De Jeu</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
+          Les Différents Terrains De Jeu
+          <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
+        </h2>
         <p className="section-subtitle text-gray-600">L'Ultimate se pratique sur différents types de surfaces, adaptées à chaque saison et style de jeu.</p>
       </div>
       <div className="grid md:grid-cols-3 gap-6">

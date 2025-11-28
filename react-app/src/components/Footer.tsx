@@ -12,16 +12,21 @@ const Footer: React.FC = () => (
         </div>
 
         {/* Navigation */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 flex-1 max-w-2xl">
           <h3 className="font-bold text-white mb-2">Navigation</h3>
-          <div className="flex flex-wrap gap-4 footer-links text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 footer-links text-sm">
+            <a href="/#accueil">Accueil</a>
             <a href="/#club">Le Club</a>
             <a href="/#harpies">Les Harpies</a>
             <a href="/#ultimate">L'Ultimate</a>
+            <a href="/#terrains">Terrains</a>
             <a href="/#entrainements">Entraînements</a>
-            <a href="/palmares">Palmarès</a>
+            <a href="/#calendrier">Calendrier</a>
             <a href="/#contact">Contact</a>
+            <a href="/#avis">Avis</a>
+            <a href="/#actualites">Actualités</a>
             <a href="/#faq">FAQ</a>
+            <a href="/palmares">Palmarès</a>
             <a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer">
               Boutique <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>
@@ -32,7 +37,7 @@ const Footer: React.FC = () => (
         </div>
 
         {/* Réseaux sociaux */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 flex-shrink-0">
           <h3 className="font-bold text-white mb-2">Suivez-nous</h3>
           <div className="flex gap-4 text-2xl">
             <a href="https://www.facebook.com/aiglesdebegles" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition" aria-label="Facebook">

@@ -192,7 +192,7 @@ const Contact: React.FC = () => {
         },
         body: new URLSearchParams({
           type: 'stream',
-          to: 'CanalDeTest_NePasSupprimerSVP',
+          to: 'Boite de réception',
           topic: fullTopic,
           content: message
         })
@@ -260,7 +260,12 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="section bg-gray-50" data-reveal>
       <div className="container">
-        <h2 className="text-3xl font-bold mb-6 text-center text-secondary">Restons en contact</h2>
+        <div className="section-header mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
+            Restons en contact
+            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
+          </h2>
+        </div>
         
         <div className="max-w-5xl mx-auto">
           <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center">

@@ -40,6 +40,7 @@ const Header: React.FC = () => {
               <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary underline' : ''}`}>Palmarès</NavLink>
             </li>
             <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary whitespace-nowrap">Contact</a></li>
+            <li><a href="/#actualites" onClick={(e) => smoothScroll(e, '#actualites')} className="hover:text-primary whitespace-nowrap">Actualités</a></li>
             <li><a href="/#faq" onClick={(e) => smoothScroll(e, '#faq')} className="hover:text-primary whitespace-nowrap">FAQ</a></li>
             <li><a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Boutique <i className="fas fa-external-link-alt external-icon" /></a></li>
             <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>

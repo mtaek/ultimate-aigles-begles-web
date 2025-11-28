@@ -46,7 +46,12 @@ const FAQ: React.FC = () => {
   return (
     <section id="faq" className="section" data-reveal>
       <div className="container">
-        <h2 className="text-3xl font-bold mb-8 text-center text-secondary">Questions Fréquentes</h2>
+        <div className="section-header mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
+            Questions Fréquentes
+            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
+          </h2>
+        </div>
         <div className="max-w-4xl mx-auto">
           {faqItems.map((item, index) => (
             <div key={index} className="mb-4 bg-white rounded-lg shadow-md overflow-hidden">

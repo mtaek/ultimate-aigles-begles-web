@@ -29,7 +29,12 @@ const Entrainements: React.FC = () => {
   return (
     <section id="entrainements" className="section bg-gray-100" data-reveal>
       <div className="container">
-        <div className="section-header mb-8"><h2 className="text-secondary">Nos Entraînements</h2></div>
+        <div className="section-header mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
+            Nos Entraînements
+            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
+          </h2>
+        </div>
         {trainings.map(t => (
           <div key={t.title} className={`training-card ${t.reverse ? 'md:flex-row-reverse' : ''}`}>
             <div className="training-map aspect-video">

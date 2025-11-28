@@ -52,9 +52,14 @@ const Avis: React.FC = () => {
   };
 
   return (
-    <section id="avis" className="section" data-reveal>
+    <section id="avis" className="section bg-gray-100" data-reveal>
       <div className="container">
-        <h2 className="text-3xl font-bold mb-8 text-center text-secondary">Pourquoi nous rejoindre ? Nos Aigles vous répondent !</h2>
+        <div className="section-header mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
+            Pourquoi nous rejoindre ? Nos Aigles vous répondent !
+            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
+          </h2>
+        </div>
         
         {/* Carousel */}
         <div className="relative max-w-4xl mx-auto">

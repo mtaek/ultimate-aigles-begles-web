@@ -10,6 +10,7 @@ import HarpiesPreview from './components/HarpiesPreview';
 import Avis from './components/Avis';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import Actualites from './components/Actualites';
 import Footer from './components/Footer';
 import Palmares from './components/Palmares';
 import NotFound from './components/NotFound';
@@ -105,6 +106,7 @@ const App: React.FC = () => {
           <Calendrier />
           <Contact />
           <Avis />
+          <Actualites />
           <FAQ />
         </>} />
         <Route path="/palmares" element={<Palmares />} />
