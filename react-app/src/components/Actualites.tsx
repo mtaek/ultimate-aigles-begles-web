@@ -16,13 +16,43 @@ const Actualites: React.FC = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        // Utiliser un proxy CORS pour accéder au flux Blogger
-        const proxyUrl = 'https://api.allorigins.win/raw?url=';
-        const blogUrl = encodeURIComponent('https://ultimatebegles.blogspot.com/feeds/posts/default?alt=json&max-results=6');
-        const response = await fetch(proxyUrl + blogUrl);
-        const data = await response.json();
+        // Essayer d'abord avec allorigins, puis avec corsproxy en fallback
+        const proxies = [
+          'https://api.allorigins.win/raw?url=',
+          'https://corsproxy.io/?'
+        ];
         
-        console.log('Données reçues:', data);
+        const blogUrl = 'https://ultimatebegles.blogspot.com/feeds/posts/default?alt=json&max-results=6';
+        let data = null;
+        let lastError = null;
+
+        for (const proxyUrl of proxies) {
+          try {
+            console.log('Tentative avec:', proxyUrl);
+            const response = await fetch(proxyUrl + encodeURIComponent(blogUrl), {
+              method: 'GET',
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+            
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            data = await response.json();
+            console.log('Données reçues avec succès:', data);
+            break;
+          } catch (err) {
+            console.warn('Échec avec ce proxy:', proxyUrl, err);
+            lastError = err;
+            continue;
+          }
+        }
+
+        if (!data) {
+          throw lastError || new Error('Tous les proxies ont échoué');
+        }
         
         const parsedArticles: Article[] = [];
 
@@ -58,7 +88,8 @@ const Actualites: React.FC = () => {
         setArticles(parsedArticles);
         setLoading(false);
       } catch (err) {
-        setError('Erreur lors du chargement des actualités');
+        console.error('Erreur complète:', err);
+        setError('Impossible de charger les actualités pour le moment');
         setLoading(false);
       }
     };
