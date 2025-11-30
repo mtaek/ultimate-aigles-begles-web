@@ -89,7 +89,7 @@ const Actualites: React.FC = () => {
         setLoading(false);
       } catch (err) {
         console.error('Erreur complète:', err);
-        setError('Impossible de charger les actualités pour le moment');
+        setError('Impossible de charger les actualités pour le moment - Actualisez la page.');
         setLoading(false);
       }
     };
