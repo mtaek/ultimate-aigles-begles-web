@@ -67,8 +67,24 @@
   <!-- Page Palmarès -->
   <url>
     <loc>https://ultimatebegles.fr/palmares</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Section Terrains -->
+  <url>
+    <loc>https://ultimatebegles.fr/#terrains</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Section Actualités -->
+  <url>
+    <loc>https://ultimatebegles.fr/#actualites</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
