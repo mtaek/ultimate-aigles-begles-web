@@ -80,14 +80,34 @@ const Terrains: React.FC = () => (
             <line x1="190" y1="30" x2="190" y2="290" stroke="#fff" strokeWidth="3"/>
             <line x1="610" y1="30" x2="610" y2="290" stroke="#fff" strokeWidth="3"/>
             
-            {/* Marques de brick (20m des lignes de goal) */}
+            {/* Marques de brick (18m des lignes de goal) */}
             {/* Croix brick gauche */}
-            <line x1="330" y1="145" x2="340" y2="155" stroke="#dc2626" strokeWidth="3"/>
-            <line x1="340" y1="145" x2="330" y2="155" stroke="#dc2626" strokeWidth="3"/>
+            <line x1="302" y1="145" x2="312" y2="155" stroke="#dc2626" strokeWidth="3"/>
+            <line x1="312" y1="145" x2="302" y2="155" stroke="#dc2626" strokeWidth="3"/>
             
             {/* Croix brick droit */}
-            <line x1="460" y1="145" x2="470" y2="155" stroke="#dc2626" strokeWidth="3"/>
-            <line x1="470" y1="145" x2="460" y2="155" stroke="#dc2626" strokeWidth="3"/>
+            <line x1="488" y1="145" x2="498" y2="155" stroke="#dc2626" strokeWidth="3"/>
+            <line x1="498" y1="145" x2="488" y2="155" stroke="#dc2626" strokeWidth="3"/>
+            
+            {/* Cônes de end-zones (coins des zones d'en-but) */}
+            {/* Cône haut-gauche de la end-zone gauche */}
+            <polygon points="190,24 186,32 194,32" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône bas-gauche de la end-zone gauche */}
+            <polygon points="190,284 186,292 194,292" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône haut-droit de la end-zone droite */}
+            <polygon points="610,24 606,32 614,32" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône bas-droit de la end-zone droite */}
+            <polygon points="610,284 606,292 614,292" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            
+            {/* Cônes au fond des end-zones (aux extrémités) */}
+            {/* Cône haut-gauche au fond */}
+            <polygon points="50,24 46,32 54,32" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône bas-gauche au fond */}
+            <polygon points="50,284 46,292 54,292" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône haut-droit au fond */}
+            <polygon points="750,24 746,32 754,32" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
+            {/* Cône bas-droit au fond */}
+            <polygon points="750,284 746,292 754,292" fill="#ef4444" stroke="#991b1b" strokeWidth="1.5"/>
             
             {/* Lignes de cotation pour les longueurs */}
             {/* Zone d'en-but gauche - 18m */}
@@ -109,8 +129,8 @@ const Terrains: React.FC = () => (
             {/* Dimensions texte dans les zones (maintenant supprimées car remplacées par les cotations) */}
             
             {/* Largeur */}
-            <line x1="45" y1="30" x2="45" y2="290" stroke="#1e3a8a" strokeWidth="2" markerStart="url(#arrowStart)" markerEnd="url(#arrowEnd)"/>
-            <text x="30" y="160" textAnchor="middle" fill="#1e3a8a" fontSize="14" fontWeight="bold" transform="rotate(-90, 30, 160)">37m</text>
+            <line x1="35" y1="30" x2="35" y2="290" stroke="#1e3a8a" strokeWidth="2" markerStart="url(#arrowStart)" markerEnd="url(#arrowEnd)"/>
+            <text x="20" y="160" textAnchor="middle" fill="#1e3a8a" fontSize="14" fontWeight="bold" transform="rotate(-90, 20, 160)">37m</text>
             
             {/* Marqueurs de flèches */}
             <defs>
@@ -124,7 +144,7 @@ const Terrains: React.FC = () => (
           </svg>
           
           {/* Légende */}
-          <div className="mt-6 grid md:grid-cols-3 gap-4 text-sm">
+          <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
             <div className="flex items-start gap-2">
               <div className="w-4 h-4 bg-[#86efac] border-2 border-white rounded flex-shrink-0 mt-1"></div>
               <p><strong>Zones d'en-but (18m) :</strong> Zones où marquer des points en réceptionnant le disque</p>
@@ -137,7 +157,13 @@ const Terrains: React.FC = () => (
               <div className="relative w-4 h-4 flex-shrink-0 mt-1">
                 <div className="absolute inset-0 flex items-center justify-center text-red-600 font-bold text-lg">×</div>
               </div>
-              <p><strong>Point de brick :</strong> À 20m de la ligne de goal au centre du terrain. Lorsque l'engagement atterrit hors-jeu près de la ligne de but (moins de 20m) ou derrière celle-ci, le receveur peut appeler "brick" et commencer à jouer depuis ce point.</p>
+              <p><strong>Point de brick :</strong> À 18m de la ligne de goal au centre du terrain. Lorsque l'engagement atterrit hors-jeu près de la ligne de but (moins de 18m) ou derrière celle-ci, le receveur peut appeler "brick" et commencer à jouer depuis ce point.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <div className="w-4 h-4 flex items-end justify-center flex-shrink-0 mt-1">
+                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-[#ef4444]"></div>
+              </div>
+              <p><strong>Cônes de end-zones :</strong> Marquent les huit coins du terrain (4 coins des lignes de goal et 4 coins des extrémités)</p>
             </div>
           </div>
         </div>

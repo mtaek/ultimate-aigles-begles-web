@@ -187,9 +187,6 @@ const Quiz: React.FC = () => {
         
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center text-white relative z-10">
-            <div className="mb-8">
-              <i className="fas fa-question-circle text-6xl mb-4 opacity-90"></i>
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Quiz Ultimate Frisbee 🥏
             </h1>

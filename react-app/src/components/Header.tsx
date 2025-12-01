@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary whitespace-nowrap">L'Ultimate</a></li>
             <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary whitespace-nowrap">Entraînements</a></li>
             <li>
-              <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary underline' : ''}`}>Palmarès</NavLink>
+              <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary' : ''}`}>Palmarès</NavLink>
             </li>
             <li>
               <NavLink to="/quiz" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-secondary text-white' : 'bg-orange-100 text-secondary hover:bg-secondary hover:text-white'}`}>Quiz 🥏</NavLink>
