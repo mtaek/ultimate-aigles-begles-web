@@ -12,6 +12,7 @@ const Quiz: React.FC = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [reportMessage, setReportMessage] = useState('');
   const [showSuccessNotification, setShowSuccessNotification] = useState(false);
+  const [quizFinished, setQuizFinished] = useState(false);
 
   const startQuiz = () => {
     // Sélectionner 10 questions aléatoires
@@ -23,6 +24,7 @@ const Quiz: React.FC = () => {
     setAnsweredQuestions(new Array(10).fill(false));
     setSelectedAnswer(null);
     setShowExplanation(false);
+    setQuizFinished(false);
   };
 
   const handleAnswerSelect = (answerIndex: number) => {
@@ -48,6 +50,9 @@ const Quiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
+    } else {
+      // C'est la dernière question, on marque le quiz comme terminé
+      setQuizFinished(true);
     }
   };
 
@@ -123,7 +128,7 @@ const Quiz: React.FC = () => {
       if (metaDesc) {
         metaDesc.setAttribute('content', 'Quiz interactif sur l\'Ultimate Frisbee ! Testez vos connaissances avec 10 questions sur les règles, techniques et culture de ce sport. Idéal pour débutants et joueurs confirmés.');
       }
-    } else if (isQuizComplete()) {
+      } else if (quizFinished) {
       document.title = 'Résultats du Quiz - Les Aigles de Bègles';
     } else {
       document.title = `Quiz Question ${currentQuestion + 1}/10 - Les Aigles de Bègles`;
@@ -225,7 +230,7 @@ const Quiz: React.FC = () => {
     );
   }
 
-  if (isQuizComplete()) {
+  if (quizFinished) {
     const percentage = (score / currentQuestions.length) * 100;
     let message = "";
     let emoji = "";
@@ -397,8 +402,17 @@ const Quiz: React.FC = () => {
                   onClick={nextQuestion}
                   className="flex-1 bg-primary hover:bg-blue-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg text-base md:text-lg shadow-lg transition"
                 >
-                  Question suivante
-                  <i className="fas fa-arrow-right ml-2"></i>
+                  {currentQuestion === currentQuestions.length - 1 ? (
+                    <>
+                      Voir les résultats
+                      <i className="fas fa-trophy ml-2"></i>
+                    </>
+                  ) : (
+                    <>
+                      Question suivante
+                      <i className="fas fa-arrow-right ml-2"></i>
+                    </>
+                  )}
                 </button>
               )}
             </div>
