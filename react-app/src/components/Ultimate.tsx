@@ -2,8 +2,8 @@ import React from 'react';
 
 const features = [
   { icon: 'fas fa-handshake', title: 'Auto-arbitrage', text: "Pas d'arbitre : les joueurs gèrent eux-mêmes les règles avec fair-play." },
-  { icon: 'fas fa-venus-mars', title: 'Mixité obligatoire', text: 'Sport 100% mixte où hommes et femmes jouent ensemble à égalité.' },
-  { icon: 'fas fa-running', title: 'Sport complet', text: 'Améliore endurance, agilité et coordination en équipe.' },
+  { icon: 'fas fa-venus-mars', title: 'Mixité', text: 'Sport 100% mixte où hommes et femmes jouent ensemble à égalité.' },
+  { icon: 'fas fa-shield-alt', title: 'Sans contact', text: 'Sport sans contact physique, privilégiant agilité et stratégie.' },
   { icon: 'fas fa-users', title: "Esprit d'équipe", text: 'Stratégie collective et communication sont essentielles pour gagner.' },
   { icon: 'fas fa-universal-access', title: 'Accessible à tous', text: "Pas besoin d'expérience : débutants et confirmés jouent ensemble." },
   { icon: 'fas fa-heart', title: 'Valeurs fortes', text: 'Respect, inclusion et plaisir sont au cœur de ce sport.' },

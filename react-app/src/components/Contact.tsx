@@ -158,6 +158,12 @@ const Contact: React.FC = () => {
     // Construction du message
     const subject = formData.type === 'test' 
       ? `Demande d'essai - ${formData.name} - ${idDemande}` 
+      : formData.type === 'quiz'
+      ? `Signalement quiz - ${formData.name} - ${idDemande}`
+      : formData.type === 'website'
+      ? `Remarque site web - ${formData.name} - ${idDemande}`
+      : formData.type === 'other'
+      ? `Autre demande - ${formData.name} - ${idDemande}`
       : `Demande de renseignements - ${formData.name} - ${idDemande}`;
     
     let message = `---\n`;
@@ -165,7 +171,7 @@ const Contact: React.FC = () => {
     message += `**Nom :** ${formData.name}\n`;
     message += `**Email :** ${formData.email}\n`;
     message += `**Téléphone :** ${formData.phone || 'Non renseigné'}\n`;
-    message += `**Type de demande :** ${formData.type === 'test' ? 'Essai gratuit' : 'Demande de renseignements'}\n`;
+    message += `**Type de demande :** ${formData.type === 'test' ? 'Essai gratuit' : formData.type === 'quiz' ? 'Signalement quiz' : formData.type === 'website' ? 'Remarque site web' : formData.type === 'other' ? 'Autre' : 'Demande de renseignements'}\n`;
     
     if (formData.type === 'test' && formData.creneau) {
       const selectedCreneau = creneaux.find(c => c.value === formData.creneau);
@@ -179,7 +185,15 @@ const Contact: React.FC = () => {
     message += `\n**Message :**\n${formData.message}\n`;
     message += `---`;
     
-    const topicName = formData.type === 'test' ? 'Demande d\'essai' : 'Demande de renseignements';
+    const topicName = formData.type === 'test' 
+      ? 'Demande d\'essai' 
+      : formData.type === 'quiz'
+      ? 'Signalement quiz'
+      : formData.type === 'website'
+      ? 'Remarque site web'
+      : formData.type === 'other'
+      ? 'Autre'
+      : 'Demande de renseignements';
     const fullTopic = `${topicName}`;
 
     try {
@@ -360,6 +374,9 @@ const Contact: React.FC = () => {
                   >
                     <option value="info">Demande de renseignements</option>
                     <option value="test">Essai gratuit</option>
+                    <option value="quiz">Remarque liée au quiz</option>
+                    <option value="website">Remarque liée au site web</option>
+                    <option value="other">Autre</option>
                   </select>
                 </div>
               </div>

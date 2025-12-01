@@ -167,8 +167,8 @@ const Palmares: React.FC = () => {
           <p className="mb-3 font-semibold">Le club propose des équipes pour tous les profils :</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
             <p><i className="fas fa-female text-primary mr-2"></i><strong>Féminin</strong> : 100% féminine</p>
-            <p><i className="fas fa-male text-primary mr-2"></i><strong>Open</strong> : Principalement masculin</p>
-            <p><i className="fas fa-venus-mars text-primary mr-2"></i><strong>Mixte</strong> : 4♂/3♀ (7v7) ou 3♂/2♀ (5v5)</p>
+            <p><i className="fas fa-male text-primary mr-2"></i><strong>Open</strong> : Ouvert à tous, quelque soit le genre</p>
+            <p><i className="fas fa-venus-mars text-primary mr-2"></i><strong>Mixte</strong> : Part égale d'hommes et de femmes</p>
             <p><i className="fas fa-child text-primary mr-2"></i><strong>Junior</strong> : U13/U15/U17/U20</p>
             <p><i className="fas fa-user-clock text-primary mr-2"></i><strong>Master</strong> : 30+ ans</p>
           </div>

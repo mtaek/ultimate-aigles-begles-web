@@ -73,7 +73,7 @@ const Avis: React.FC = () => {
           </button>
 
           {/* Avis */}
-          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 min-h-[300px] flex flex-col justify-center">
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 h-[510px] md:h-[400px] flex flex-col justify-center overflow-y-auto">
             <div className="review-stars text-yellow-500 mb-4 text-center text-2xl">★★★★★</div>
             <p className="italic text-lg md:text-xl mb-6 text-gray-700 text-center leading-relaxed">
               {reviews[currentIndex].text}

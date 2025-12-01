@@ -34,6 +34,7 @@ const Entrainements: React.FC = () => {
             Nos Entraînements
             <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
           </h2>
+          <p className="text-lg text-gray-600 mt-6">Tous nos entraînements sont en catégorie mixte</p>
         </div>
         {trainings.map(t => (
           <div key={t.title} className={`training-card ${t.reverse ? 'md:flex-row-reverse' : ''}`}>

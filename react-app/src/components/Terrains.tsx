@@ -23,7 +23,7 @@ const terrains = [
   },
   {
     icon: 'fas fa-home',
-    title: 'Terrain Indoor',
+    title: 'Terrain gymnase (Indoor)',
     details: [
       ['Surface', 'Parquet (gymnase)'],
       ['Taille', '40m x 20m (adaptable)'],

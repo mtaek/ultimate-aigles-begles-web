@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Actualites from './components/Actualites';
 import Footer from './components/Footer';
 import Palmares from './components/Palmares';
+import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
@@ -99,17 +100,18 @@ const App: React.FC = () => {
         <Route path="/" element={<>
           <Hero />
           <Club />
-          <HarpiesPreview />
           <Ultimate />
           <Terrains />
           <Entrainements />
           <Calendrier />
+          <HarpiesPreview />
           <Contact />
           <Avis />
           <Actualites />
           <FAQ />
         </>} />
         <Route path="/palmares" element={<Palmares />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
