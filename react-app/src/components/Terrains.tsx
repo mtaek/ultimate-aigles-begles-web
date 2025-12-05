@@ -157,7 +157,7 @@ const Terrains: React.FC = () => (
               <div className="relative w-4 h-4 flex-shrink-0 mt-1">
                 <div className="absolute inset-0 flex items-center justify-center text-red-600 font-bold text-lg">×</div>
               </div>
-              <p><strong>Point de brick :</strong> À 18m de la ligne de goal au centre du terrain. Lorsque l'engagement atterrit hors-jeu près de la ligne de but (moins de 18m) ou derrière celle-ci, le receveur peut appeler "brick" et commencer à jouer depuis ce point.</p>
+              <p><strong>Point de brick :</strong> À 18m de la ligne de goal au centre du terrain. Lorsque l'engagement atterrit hors-jeu, le receveur peut appeler "brick" et commencer à jouer depuis ce point.</p>
             </div>
             <div className="flex items-start gap-2">
               <div className="w-4 h-4 flex items-end justify-center flex-shrink-0 mt-1">

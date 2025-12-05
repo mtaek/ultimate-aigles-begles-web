@@ -118,22 +118,21 @@ const Quiz: React.FC = () => {
     }
   };
 
-  // Update document title and meta description based on quiz state
+  // Update document title and meta description without changing per question
   useEffect(() => {
-    if (!quizStarted) {
-      document.title = 'Quiz Ultimate Frisbee - Testez vos connaissances | Les Aigles de Bègles';
-      
-      // Update meta description
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Quiz interactif sur l\'Ultimate Frisbee ! Testez vos connaissances avec 10 questions sur les règles, techniques et culture de ce sport. Idéal pour débutants et joueurs confirmés.');
-      }
-      } else if (quizFinished) {
+    if (quizFinished) {
       document.title = 'Résultats du Quiz - Les Aigles de Bègles';
-    } else {
-      document.title = `Quiz Question ${currentQuestion + 1}/10 - Les Aigles de Bègles`;
+      return;
     }
-  }, [quizStarted, currentQuestion, showExplanation]);
+    // Keep a stable title while taking the quiz or before starting
+    document.title = 'Quiz Ultimate Frisbee - Testez vos connaissances | Les Aigles de Bègles';
+
+    // Update meta description once
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', "Quiz interactif sur l'Ultimate Frisbee ! Testez vos connaissances avec 10 questions sur les règles, techniques et culture de ce sport. Idéal pour débutants et joueurs confirmés.");
+    }
+  }, [quizFinished]);
 
   if (!quizStarted) {
     return (
