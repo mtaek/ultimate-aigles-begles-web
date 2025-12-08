@@ -22,6 +22,7 @@ const Footer: React.FC = () => (
             <a href="/#terrains">Terrains</a>
             <a href="/#entrainements">Entraînements</a>
             <a href="/#calendrier">Calendrier</a>
+            <a href="/#tarifs">Tarifs</a>
             <a href="/#contact">Contact</a>
             <a href="/#avis">Avis</a>
             <a href="/#actualites">Actualités</a>

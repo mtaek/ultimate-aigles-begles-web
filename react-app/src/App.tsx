@@ -5,6 +5,7 @@ import Club from './components/Club';
 import Ultimate from './components/Ultimate';
 import Terrains from './components/Terrains';
 import Entrainements from './components/Entrainements';
+import Tarifs from './components/Tarifs';
 import Calendrier from './components/Calendrier';
 import HarpiesPreview from './components/HarpiesPreview';
 import Avis from './components/Avis';
@@ -103,6 +104,7 @@ const App: React.FC = () => {
           <Ultimate />
           <Terrains />
           <Entrainements />
+          <Tarifs />
           <Calendrier />
           <HarpiesPreview />
           <Contact />

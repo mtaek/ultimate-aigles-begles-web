@@ -35,6 +35,7 @@ const Header: React.FC = () => {
             <li><a href="/#club" onClick={(e) => smoothScroll(e, '#club')} className="hover:text-primary whitespace-nowrap">Le Club</a></li>
             <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary whitespace-nowrap">L'Ultimate</a></li>
             <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary whitespace-nowrap">Entraînements</a></li>
+            <li><a href="/#tarifs" onClick={(e) => smoothScroll(e, '#tarifs')} className="hover:text-primary whitespace-nowrap">Tarifs</a></li>
             <li>
               <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary' : ''}`}>Palmarès</NavLink>
             </li>
