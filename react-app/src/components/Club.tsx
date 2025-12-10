@@ -9,7 +9,7 @@ const Club: React.FC = () => (
           <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
         </h2>
       </div>
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <div>
           <p className="mb-4">Les Aigles de Bègles jouent ensemble depuis 2018 et ont créé en 2024 l'association <b>Ultimate Bègles</b>, un club d'ultimate frisbee basé à Bègles dans la métropole de Bordeaux. Nous accueillons des joueurs de tous niveaux, du débutant au confirmé, dans une ambiance conviviale et sportive.</p>
           <p>Notre objectif : promouvoir l'Ultimate Frisbee en Nouvelle-Aquitaine tout en développant l'esprit d'équipe et le fair-play.</p>

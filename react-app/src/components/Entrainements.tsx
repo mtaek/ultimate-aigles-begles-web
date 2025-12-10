@@ -36,6 +36,7 @@ const Entrainements: React.FC = () => {
           </h2>
           <p className="text-lg text-gray-600 mt-6">Tous nos entraînements sont en catégorie mixte</p>
         </div>
+        <div className="max-w-5xl mx-auto">
         {trainings.map(t => (
           <div key={t.title} className={`training-card ${t.reverse ? 'md:flex-row-reverse' : ''}`}>
             <div className="training-map aspect-video">
@@ -64,6 +65,7 @@ const Entrainements: React.FC = () => {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

@@ -176,7 +176,8 @@ const Actualites: React.FC = () => {
   if (loading) {
     return (
       <section id="actualites" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
           <div className="section-header mb-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
               Actualités
@@ -187,7 +188,7 @@ const Actualites: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden animate-pulse">
                 {/* Image skeleton */}
@@ -210,6 +211,7 @@ const Actualites: React.FC = () => {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
     );
@@ -218,7 +220,8 @@ const Actualites: React.FC = () => {
   if (error) {
     return (
       <section id="actualites" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
           <div className="section-header mb-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
               Actualités
@@ -236,7 +239,7 @@ const Actualites: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article, index) => (
               <article
                 key={index}
@@ -302,6 +305,7 @@ const Actualites: React.FC = () => {
               Voir toutes les actualités
             </a>
           </div>
+          </div>
         </div>
       </section>
     );
@@ -309,7 +313,8 @@ const Actualites: React.FC = () => {
 
   return (
     <section id="actualites" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="container">
+        <div className="max-w-5xl mx-auto">
         <div className="section-header mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
             Actualités
@@ -320,7 +325,7 @@ const Actualites: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article, index) => (
             <article
               key={index}
@@ -385,6 +390,7 @@ const Actualites: React.FC = () => {
           >
             Voir toutes les actualités
           </a>
+        </div>
         </div>
       </div>
     </section>

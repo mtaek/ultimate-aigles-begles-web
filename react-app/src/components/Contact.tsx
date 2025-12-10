@@ -274,6 +274,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="section bg-gray-50" data-reveal>
       <div className="container">
+        <div className="max-w-5xl mx-auto">
         <div className="section-header mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
             Restons en contact
@@ -281,13 +282,13 @@ const Contact: React.FC = () => {
           </h2>
         </div>
         
-        <div className="max-w-5xl mx-auto">
+        <div className="px-4">
           <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center">
             Vous avez une question, une demande d'information ou envie de nous rejoindre ?
           </p>
 
           {/* Formulaire de contact */}
-          <div className="bg-white rounded-lg shadow-xl p-8 mb-8 relative">
+          <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 mb-8 relative">
             {/* Notification flottante */}
             {formStatus === 'success' && (
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl animate-slide-in flex items-center gap-3 w-11/12 md:w-auto">
@@ -590,6 +591,7 @@ const Contact: React.FC = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

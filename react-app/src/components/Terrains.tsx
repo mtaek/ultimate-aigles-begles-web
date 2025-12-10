@@ -36,6 +36,7 @@ const terrains = [
 const Terrains: React.FC = () => (
   <section id="terrains" className="section" data-reveal>
     <div className="container">
+      <div className="max-w-5xl mx-auto">
       <div className="section-header mb-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
           Les Différents Terrains De Jeu
@@ -64,7 +65,7 @@ const Terrains: React.FC = () => (
           Les terrains Beach et Indoor suivent la même structure (zones d'en-but, ligne de goal, brick) mais avec des dimensions adaptées.
         </p>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="">
           {/* Terrain SVG */}
           <svg viewBox="0 0 800 320" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
             {/* Fond vert */}
@@ -167,6 +168,7 @@ const Terrains: React.FC = () => (
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>

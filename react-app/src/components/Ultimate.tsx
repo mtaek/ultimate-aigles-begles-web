@@ -18,12 +18,12 @@ const Ultimate: React.FC = () => (
           <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
         </h2>
       </div>
-      <div className="space-y-4 mb-10">
+      <div className="max-w-5xl mx-auto space-y-4 mb-10">
         <p>L'Ultimate (ou Ultimate Frisbee) est un sport collectif <strong>sans contact</strong> qui se joue avec un disque. Deux équipes de 7 joueurs s'affrontent sur un terrain rectangulaire avec des zones d'en-but, avec pour objectif de marquer des points en attrapant le disque dans la zone adverse.</p>
         <p>Ce qui rend ce sport unique est son <strong>esprit sportif</strong> (Spirit of the Game) où les joueurs arbitrent eux-mêmes les matchs, même en compétition, favorisant le <strong>fair-play</strong> et le <strong>respect</strong>.</p>
         <p>Accessible à tous, l'Ultimate développe <strong>endurance, coordination et esprit d'équipe</strong>, tout en prônant la <strong>mixité</strong> et l'<strong>inclusion</strong>.</p>
       </div>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
         {features.map(f => (
           <div key={f.title} className="feature-card">
             <div className="text-3xl text-primary"><i className={f.icon} /></div>

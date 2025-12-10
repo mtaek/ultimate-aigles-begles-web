@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface FAQItem {
   question: string;
@@ -6,7 +6,6 @@ interface FAQItem {
 }
 
 const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqItems: FAQItem[] = [
     {
@@ -39,8 +38,21 @@ const FAQ: React.FC = () => {
     }
   ];
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const getLinkForQuestion = (q: string): { href: string; label: string } | null => {
+    const lower = q.toLowerCase();
+    if (lower.includes('tarif') || lower.includes('licence')) {
+      return { href: '/#tarifs', label: 'Voir les tarifs' };
+    }
+    if (lower.includes('horaire') || lower.includes("entraînement")) {
+      return { href: '/#entrainements', label: 'Voir les entraînements' };
+    }
+    if (lower.includes('palmarès') || lower.includes('compétition')) {
+      return { href: '/palmares', label: 'Voir le palmarès' };
+    }
+    if (lower.includes('harpies')) {
+      return { href: '/#harpies', label: 'Découvrir les Harpies' };
+    }
+    return null;
   };
 
   return (
@@ -52,27 +64,35 @@ const FAQ: React.FC = () => {
             <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-[3px] bg-secondary"></span>
           </h2>
         </div>
-        <div className="max-w-4xl mx-auto">
-          {faqItems.map((item, index) => (
-            <div key={index} className="mb-4 bg-white rounded-lg shadow-md overflow-hidden">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors"
-              >
-                <span className="font-semibold text-gray-900 pr-4">{item.question}</span>
-                <i className={`fas fa-chevron-${openIndex === index ? 'up' : 'down'} text-primary flex-shrink-0`}></i>
-              </button>
-              <div
-                className={`transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                } overflow-hidden`}
-              >
-                <div className="p-6 pt-0 text-gray-700 leading-relaxed">
-                  {item.answer}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          {faqItems.map((item, index) => {
+            const more = getLinkForQuestion(item.question);
+            return (
+              <div key={index} className="bg-white rounded-lg shadow-sm p-5 flex items-start gap-4 border-l-2 border-gray-200">
+                <div className="text-primary mt-1">
+                  {/* Mini frisbee disc icon (clearer shape) */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="currentColor" opacity="0.12" />
+                    <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                    <ellipse cx="12" cy="12" rx="6.5" ry="3" fill="white" />
+                    <ellipse cx="12" cy="12" rx="6.5" ry="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
+                    <path d="M5.8 11.2c1.8-1.4 4.3-2.2 6.2-2.2s4.4 0.8 6.2 2.2" fill="none" stroke="currentColor" strokeWidth="0.9" opacity="0.6" />
+                    <path d="M3.5 12h2.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
+                    <path d="M18.3 12h2.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-2">{item.question}</h3>
+                  <p className="text-gray-700 mb-3">{item.answer}</p>
+                  {more && (
+                    <a href={more.href} className="text-primary font-semibold hover:text-secondary">
+                      {more.label}
+                    </a>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -16,7 +16,8 @@ const Tarifs: React.FC = () => {
 
   return (
     <section id="tarifs" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white" data-reveal>
-      <div className="max-w-7xl mx-auto">
+      <div className="container">
+        <div className="max-w-5xl mx-auto">
         <div className="section-header mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary relative inline-block">
             Tarifs
@@ -26,16 +27,16 @@ const Tarifs: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-          {/* Cards layout: one block per line */}
-          <div className="grid grid-cols-1 gap-4">
+          {/* Cards layout: one block per line (compact) */}
+          <div className="grid grid-cols-1 gap-3">
             {rows.map((r) => {
               const total = r.fffd + r.assurance + r.association;
               return (
-                <div key={`${r.categorie}-${r.type}`} className="border border-gray-200 rounded-lg px-5 py-4 shadow-sm">
+                <div key={`${r.categorie}-${r.type}`} className="border border-gray-200 rounded-lg px-4 py-3 shadow-sm">
                   <div className="flex items-center">
-                    <span className="text-primary font-semibold flex-1">{r.categorie}</span>
-                    <span className="text-black font-bold text-base text-center flex-1">{r.type}</span>
-                    <span className="text-secondary font-bold text-lg text-right flex-1">{total.toFixed(2).replace('.', ',')}€</span>
+                    <span className="text-primary font-semibold flex-1 text-sm md:text-base">{r.categorie}</span>
+                    <span className="text-black font-bold text-sm md:text-base text-center flex-1">{r.type}</span>
+                    <span className="text-secondary font-bold text-base md:text-lg text-right flex-1">{total.toFixed(2).replace('.', ',')}€</span>
                   </div>
                 </div>
               );
@@ -68,6 +69,7 @@ const Tarifs: React.FC = () => {
               <i className="fas fa-external-link-alt external-icon ml-2" />
             </a>
           </div>
+        </div>
         </div>
       </div>
     </section>
