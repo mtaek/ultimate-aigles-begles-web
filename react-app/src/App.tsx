@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Club from './components/Club';
@@ -16,6 +16,8 @@ import Footer from './components/Footer';
 import Palmares from './components/Palmares';
 import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
+import CookieConsent from './components/CookieConsent';
+import type { CookieConsentHandle } from './components/CookieConsent';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
@@ -92,6 +94,12 @@ const UpdateHashOnScroll = () => {
 
 const App: React.FC = () => {
   useReveal();
+  const cookieConsentRef = useRef<CookieConsentHandle>(null);
+
+  const handleOpenCookieSettings = () => {
+    cookieConsentRef.current?.openSettings();
+  };
+
   return (
     <BrowserRouter>
       <ScrollToHashElement />
@@ -116,7 +124,8 @@ const App: React.FC = () => {
         <Route path="/quiz" element={<Quiz />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer onOpenCookieSettings={handleOpenCookieSettings} />
+      <CookieConsent ref={cookieConsentRef} />
     </BrowserRouter>
   );
 };

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Footer: React.FC = () => (
+interface FooterProps {
+  onOpenCookieSettings?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenCookieSettings }) => (
   <footer>
     <div className="container">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 footer-content">
@@ -35,6 +39,15 @@ const Footer: React.FC = () => (
             <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
               Blog <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>
+            {onOpenCookieSettings && (
+              <button 
+                onClick={onOpenCookieSettings}
+                className="text-left hover:text-primary transition"
+                aria-label="Gérer les cookies"
+              >
+                Cookies
+              </button>
+            )}
           </div>
         </div>
 
