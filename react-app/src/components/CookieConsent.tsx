@@ -1,10 +1,10 @@
-import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 
 export interface CookieConsentHandle {
   openSettings: () => void;
 }
 
-const CookieConsent = forwardRef<CookieConsentHandle>((props, ref) => {
+const CookieConsent = forwardRef<CookieConsentHandle>((_props, ref) => {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
