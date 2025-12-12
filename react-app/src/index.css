@@ -19,11 +19,25 @@ body { @apply font-sans bg-gray-50 text-gray-800; }
 html { scroll-behavior: smooth; }
 header { @apply bg-white shadow sticky top-0 z-50; }
 nav a { @apply text-gray-700 hover:text-primary font-semibold; }
-.hero { @apply text-white text-center; min-height: 100vh; display: flex; align-items: center; background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('/images/banniere-lundi.jpg') no-repeat center center/cover; background-size: cover; }
+.hero { @apply text-white text-center; position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.7)); z-index: 1; }
+.hero .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero .container { position: relative; z-index: 2; }
 .hero h1 { @apply text-5xl font-bold mb-4; }
 .hero .slogan { @apply text-xl mb-6; }
 .email-link { @apply text-primary underline cursor-pointer; }
 .external-icon { @apply ml-1 text-xs; }
+
+/* Show image instead of video on screens <= 1110px */
+@media (max-width: 1110px) {
+  .hero .hero-video { display: none; }
+  .hero {
+    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('/images/banniere-lundi.jpg') no-repeat center center/cover;
+    background-size: cover;
+  }
+  /* Avoid double overlay when using background+gradient */
+  .hero::before { background: transparent; }
+}
 
 /* Scroll offset pour compenser le header sticky */
 section[id] { scroll-margin-top: 80px; }

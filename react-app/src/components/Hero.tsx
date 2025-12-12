@@ -14,6 +14,17 @@ const Hero: React.FC = () => {
 
   return (
     <section id="accueil" className="hero" data-reveal>
+      {/* Video background */}
+      <video
+        className="hero-video"
+        src="/videos/LiveUltimate.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/images/banniere-lundi.jpg"
+      />
       <div className="container text-center w-full">
         <h1 className="text-5xl md:text-6xl font-bold mb-6">Les Aigles de Bègles</h1>
         <p className="slogan text-xl md:text-2xl mb-8 max-w-3xl mx-auto">L'Ultimate, bien plus qu'un sport : Intensité, Fair-Play, Convivialité, Inclusion et Mixité.</p>
