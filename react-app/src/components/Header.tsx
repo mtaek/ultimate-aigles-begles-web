@@ -32,19 +32,19 @@ const Header: React.FC = () => {
         </div>
         <nav className="flex items-center gap-4">
           <ul className={`font-semibold items-center ${open ? 'flex flex-col fixed inset-0 top-16 bg-white/80 backdrop-blur-sm w-screen h-screen p-8 shadow z-50 gap-6 text-xl sm:text-2xl justify-start' : 'hidden min-[1000px]:flex gap-3 xl:gap-6 text-xs min-[1000px]:text-sm xl:text-base'}`}>
-            <li><a href="/#club" onClick={(e) => smoothScroll(e, '#club')} className="hover:text-primary whitespace-nowrap">Le Club</a></li>
-            <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary whitespace-nowrap">L'Ultimate</a></li>
-            <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary whitespace-nowrap">Entraînements</a></li>
-            <li><a href="/#tarifs" onClick={(e) => smoothScroll(e, '#tarifs')} className="hover:text-primary whitespace-nowrap">Tarifs</a></li>
+            {/* <li><a href="/#club" onClick={(e) => smoothScroll(e, '#club')} className="hover:text-primary whitespace-nowrap">Le Club</a></li> */}
+            {/* <li><a href="/#ultimate" onClick={(e) => smoothScroll(e, '#ultimate')} className="hover:text-primary whitespace-nowrap">L'Ultimate</a></li> */}
+            {/* <li><a href="/#entrainements" onClick={(e) => smoothScroll(e, '#entrainements')} className="hover:text-primary whitespace-nowrap">Entraînements</a></li> */}
+            {/* <li><a href="/#tarifs" onClick={(e) => smoothScroll(e, '#tarifs')} className="hover:text-primary whitespace-nowrap">Tarifs</a></li> */}
+            <li>
+              <NavLink to="/quiz" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-secondary text-white' : 'bg-orange-100 text-secondary hover:bg-secondary hover:text-white'}`}>Quiz</NavLink>
+            </li>
             <li>
               <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary' : ''}`}>Palmarès</NavLink>
             </li>
-            <li>
-              <NavLink to="/quiz" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-secondary text-white' : 'bg-orange-100 text-secondary hover:bg-secondary hover:text-white'}`}>Quiz 🥏</NavLink>
-            </li>
-            <li><a href="/#harpies" onClick={(e) => smoothScroll(e, '#harpies')} className="text-purple-600 hover:text-purple-700 whitespace-nowrap">Les Harpies</a></li>
-            <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary whitespace-nowrap">Contact</a></li>
-            <li><a href="/#actualites" onClick={(e) => smoothScroll(e, '#actualites')} className="hover:text-primary whitespace-nowrap">Actualités</a></li>
+            {/* <li><a href="/#harpies" onClick={(e) => smoothScroll(e, '#harpies')} className="text-purple-600 hover:text-purple-700 whitespace-nowrap">Les Harpies</a></li> */}
+            {/* <li><a href="/#contact" onClick={(e) => smoothScroll(e, '#contact')} className="hover:text-primary whitespace-nowrap">Contact</a></li> */}
+            {/* <li><a href="/#actualites" onClick={(e) => smoothScroll(e, '#actualites')} className="hover:text-primary whitespace-nowrap">Actualités</a></li> */}
             <li><a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Boutique <i className="fas fa-external-link-alt external-icon" /></a></li>
             <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
           </ul>

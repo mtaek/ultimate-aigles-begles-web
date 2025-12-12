@@ -18,6 +18,7 @@ import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
 import type { CookieConsentHandle } from './components/CookieConsent';
+import SectionNavigator from './components/SectionNavigator';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
@@ -105,6 +106,7 @@ const App: React.FC = () => {
       <ScrollToHashElement />
       <UpdateHashOnScroll />
       <Header />
+      <SectionNavigator />
       <Routes>
         <Route path="/" element={<>
           <Hero />
