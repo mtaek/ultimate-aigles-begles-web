@@ -22,7 +22,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Quel équipement faut-il pour commencer ?",
-      answer: "Pour débuter, il vous suffit d'une tenue de sport confortable et de chaussures adaptées (crampons pour l'outdoor, chaussures indoor pour la salle). Le club fournit les frisbees pour les entraînements."
+      answer: "Pour débuter, il vous suffit d'une tenue de sport confortable et de chaussures adaptées (crampons pour l'outdoor/extérieur, chaussures indoor/intérieur pour la salle). Le club fournit les frisbees pour les entraînements."
     },
     {
       question: "Combien coûte la licence ?",
@@ -30,7 +30,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Participez-vous à des compétitions ?",
-      answer: "Oui ! Le club participe à des compétitions régionales et nationales tout au long de la saison. Nous avons des équipes en championnat outdoor, indoor et beach. Consultez notre palmarès pour voir nos résultats."
+      answer: "Oui ! Le club participe à des compétitions régionales et nationales tout au long de la saison. Nous avons des équipes en championnat outdoor/extérieur, indoor/intérieur et beach/sable. Consultez notre palmarès pour voir nos résultats."
     },
     {
       question: "Qu'est-ce que le tournoi des Harpies ?",

@@ -35,7 +35,7 @@ const HarpiesPreview: React.FC = () => {
               
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 <div className="bg-white px-6 py-3 rounded-lg shadow-md">
-                  <span className="text-purple-600 font-semibold">Indoor</span>
+                  <span className="text-purple-600 font-semibold">Indoor/Intérieur</span>
                 </div>
                 <div className="bg-white px-6 py-3 rounded-lg shadow-md">
                   <span className="text-purple-600 font-semibold">100% Féminin</span>

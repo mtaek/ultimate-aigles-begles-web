@@ -3,17 +3,17 @@ import React from 'react';
 const terrains = [
   {
     icon: 'fas fa-tree',
-    title: 'Terrain Herbe (Outdoor)',
+    title: 'Terrain Herbe (Outdoor/Extérieur)',
     details: [
       ['Surface', 'Pelouse naturelle ou synthétique'],
       ['Taille', '100m x 37m (règlement officiel)'],
-      ['Saison', 'Printemps/Été'],
+      ['Saison', 'Mars à Juin'],
       ['Équipement', 'Crampons recommandés'],
     ],
   },
   {
     icon: 'fas fa-umbrella-beach',
-    title: 'Terrain Sable (Beach)',
+    title: 'Terrain Sable (Beach/Sable)',
     details: [
       ['Surface', 'Sable'],
       ['Taille', '70m x 25m (adaptable)'],
@@ -23,11 +23,11 @@ const terrains = [
   },
   {
     icon: 'fas fa-home',
-    title: 'Terrain gymnase (Indoor)',
+    title: 'Terrain gymnase (Indoor/Intérieur)',
     details: [
       ['Surface', 'Parquet (gymnase)'],
       ['Taille', '40m x 20m (adaptable)'],
-      ['Saison', 'Novembre à Avril'],
+      ['Saison', 'Novembre à Février'],
       ['Équipement', "Baskets d'intérieur"],
     ],
   },
@@ -60,9 +60,9 @@ const Terrains: React.FC = () => (
 
       {/* Schéma du terrain d'Ultimate */}
       <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
-        <h3 className="text-2xl font-bold text-center text-secondary mb-6">Schéma du Terrain d'Ultimate (Outdoor)</h3>
+        <h3 className="text-2xl font-bold text-center text-secondary mb-6">Schéma du Terrain d'Ultimate (Outdoor/Extérieur)</h3>
         <p className="text-center text-gray-600 mb-6 text-sm">
-          Les terrains Beach et Indoor suivent la même structure (zones d'en-but, ligne de goal, brick) mais avec des dimensions adaptées.
+          Les terrains Beach/Sable et Indoor/Intérieur suivent la même structure (zones d'en-but, ligne de goal, brick) mais avec des dimensions adaptées.
         </p>
         
         <div className="">
