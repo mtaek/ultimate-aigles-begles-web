@@ -99,10 +99,22 @@ const HardRedirect: React.FC<{ to: string }> = ({ to }) => {
   return null;
 };
 
-// Forces a full page reload so nginx serves the current path (e.g. /ultitimer/*)
-const HardReload: React.FC = () => {
-  useEffect(() => { window.location.reload(); }, []);
-  return null;
+// Attempts one hard navigation to let nginx serve Flutter, then stops retrying.
+const UltiTimerHandoff: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const key = `ultitimer-handoff:${location.pathname}${location.search}`;
+    if (sessionStorage.getItem(key) === '1') return;
+    sessionStorage.setItem(key, '1');
+    window.location.replace('/ultitimer/');
+  }, [location.pathname, location.search]);
+
+  return (
+    <main style={{ minHeight: '60vh', display: 'grid', placeItems: 'center', padding: '2rem' }}>
+      <p>Chargement d'UltiTimer...</p>
+    </main>
+  );
 };
 
 const App: React.FC = () => {
@@ -137,7 +149,7 @@ const App: React.FC = () => {
         {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/ultitimer" element={<HardRedirect to="/ultitimer/" />} />
-        <Route path="/ultitimer/*" element={<HardReload />} />
+        <Route path="/ultitimer/*" element={<UltiTimerHandoff />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer onOpenCookieSettings={handleOpenCookieSettings} />
