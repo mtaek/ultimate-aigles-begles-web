@@ -125,6 +125,7 @@ const AppLayout: React.FC<{
         {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/ultitimer" element={<UltiTimerEmbed />} />
+        <Route path="/ultitimer/" element={<UltiTimerEmbed />} />
         <Route path="/ultitimer/*" element={<UltiTimerEmbed />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
