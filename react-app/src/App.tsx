@@ -19,6 +19,7 @@ import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
 import type { CookieConsentHandle } from './components/CookieConsent';
 import SectionNavigator from './components/SectionNavigator';
+import UltiTimerEmbed from './components/UltiTimerEmbed';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
@@ -93,44 +94,19 @@ const UpdateHashOnScroll = () => {
   return null;
 };
 
-// Forces a real browser navigation so nginx (not React Router) handles /ultitimer/
-const HardRedirect: React.FC<{ to: string }> = ({ to }) => {
-  useEffect(() => { window.location.replace(to); }, [to]);
-  return null;
-};
-
-// Attempts one hard navigation to let nginx serve Flutter, then stops retrying.
-const UltiTimerHandoff: React.FC = () => {
+const AppLayout: React.FC<{
+  onOpenCookieSettings: () => void;
+  cookieConsentRef: React.RefObject<CookieConsentHandle | null>;
+}> = ({ onOpenCookieSettings, cookieConsentRef }) => {
   const location = useLocation();
-
-  useEffect(() => {
-    const key = `ultitimer-handoff:${location.pathname}${location.search}`;
-    if (sessionStorage.getItem(key) === '1') return;
-    sessionStorage.setItem(key, '1');
-    window.location.replace('/ultitimer/');
-  }, [location.pathname, location.search]);
+  const isUltiTimerRoute = location.pathname === '/ultitimer' || location.pathname.startsWith('/ultitimer/');
 
   return (
-    <main style={{ minHeight: '60vh', display: 'grid', placeItems: 'center', padding: '2rem' }}>
-      <p>Chargement d'UltiTimer...</p>
-    </main>
-  );
-};
-
-const App: React.FC = () => {
-  useReveal();
-  const cookieConsentRef = useRef<CookieConsentHandle>(null);
-
-  const handleOpenCookieSettings = () => {
-    cookieConsentRef.current?.openSettings();
-  };
-
-  return (
-    <BrowserRouter>
+    <>
       <ScrollToHashElement />
       <UpdateHashOnScroll />
-      <Header />
-      <SectionNavigator />
+      {!isUltiTimerRoute && <Header />}
+      {!isUltiTimerRoute && <SectionNavigator />}
       <Routes>
         <Route path="/" element={<>
           <Hero />
@@ -148,12 +124,30 @@ const App: React.FC = () => {
         </>} />
         {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/ultitimer" element={<HardRedirect to="/ultitimer/" />} />
-        <Route path="/ultitimer/*" element={<UltiTimerHandoff />} />
+        <Route path="/ultitimer" element={<UltiTimerEmbed />} />
+        <Route path="/ultitimer/*" element={<UltiTimerEmbed />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer onOpenCookieSettings={handleOpenCookieSettings} />
+      {!isUltiTimerRoute && <Footer onOpenCookieSettings={onOpenCookieSettings} />}
       <CookieConsent ref={cookieConsentRef} />
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  useReveal();
+  const cookieConsentRef = useRef<CookieConsentHandle>(null);
+
+  const handleOpenCookieSettings = () => {
+    cookieConsentRef.current?.openSettings();
+  };
+
+  return (
+    <BrowserRouter>
+      <AppLayout
+        onOpenCookieSettings={handleOpenCookieSettings}
+        cookieConsentRef={cookieConsentRef}
+      />
     </BrowserRouter>
   );
 };

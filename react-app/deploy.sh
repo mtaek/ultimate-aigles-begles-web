@@ -1,23 +1,111 @@
 #!/bin/bash
 
-echo "===================================="
-echo "  Build et Deploy de l'application"
-echo "===================================="
-echo ""
+set -euo pipefail
 
-echo "[1/2] Build de l'image Docker..."
-docker compose build
-if [ $? -ne 0 ]; then
-    echo "ERREUR lors du build!"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if docker compose version >/dev/null 2>&1; then
+    COMPOSE_CMD=(docker compose)
+elif command -v docker-compose >/dev/null 2>&1; then
+    COMPOSE_CMD=(docker-compose)
+else
+    echo "ERREUR: docker compose n'est pas disponible sur ce serveur."
     exit 1
 fi
 
+REACT_APP_DIR="${REACT_APP_DIR:-$SCRIPT_DIR}"
+ULTITIMER_APP_DIR="${ULTITIMER_APP_DIR:-$SCRIPT_DIR/../ultitimer-app}"
+ULTITIMER_HEALTHCHECK_URL="${ULTITIMER_HEALTHCHECK_URL:-http://localhost:8081/}"
+REACT_HEALTHCHECK_URL="${REACT_HEALTHCHECK_URL:-http://localhost:8080/ultitimer/}"
+RELOAD_NGINX="${RELOAD_NGINX:-0}"
+
+echo "===================================="
+echo "  Deploiement Web + UltiTimer"
+echo "===================================="
 echo ""
-echo "[2/2] Demarrage des conteneurs..."
-docker compose up -d
-if [ $? -ne 0 ]; then
-    echo "ERREUR lors du demarrage!"
-    exit 1
+
+find_compose_file() {
+    local dir="$1"
+    for candidate in docker-compose.yml docker-compose.yaml compose.yml compose.yaml; do
+        if [ -f "$dir/$candidate" ]; then
+            echo "$candidate"
+            return 0
+        fi
+    done
+    return 1
+}
+
+run_compose() {
+    local dir="$1"
+    local compose_file="$2"
+    shift 2
+    (
+        cd "$dir"
+        "${COMPOSE_CMD[@]}" -f "$compose_file" "$@"
+    )
+}
+
+check_http() {
+    local name="$1"
+    local url="$2"
+
+    if ! command -v curl >/dev/null 2>&1; then
+        echo "INFO: curl indisponible, verification HTTP sautee pour $name"
+        return 0
+    fi
+
+    if curl --fail --silent --show-error --location "$url" >/dev/null; then
+        echo "OK: $name repond sur $url"
+    else
+        echo "ERREUR: $name ne repond pas correctement sur $url"
+        exit 1
+    fi
+}
+
+deploy_stack() {
+    local name="$1"
+    local dir="$2"
+    local healthcheck_url="$3"
+
+    if [ ! -d "$dir" ]; then
+        echo "INFO: dossier $name introuvable ($dir), etape ignoree."
+        return 0
+    fi
+
+    local compose_file
+    if ! compose_file="$(find_compose_file "$dir")"; then
+        echo "INFO: aucun fichier compose trouve pour $name dans $dir, etape ignoree."
+        return 0
+    fi
+
+    echo "[$name] Build de l'image Docker..."
+    run_compose "$dir" "$compose_file" build
+
+    echo "[$name] Demarrage des conteneurs..."
+    run_compose "$dir" "$compose_file" up -d
+
+    check_http "$name" "$healthcheck_url"
+    echo ""
+}
+
+echo "[1/3] Deploiement UltiTimer (si configure)..."
+deploy_stack "UltiTimer" "$ULTITIMER_APP_DIR" "$ULTITIMER_HEALTHCHECK_URL"
+
+echo "[2/3] Deploiement application React..."
+deploy_stack "Application React" "$REACT_APP_DIR" "$REACT_HEALTHCHECK_URL"
+
+echo "[3/3] Rechargement nginx hote (optionnel)..."
+if [ "$RELOAD_NGINX" = "1" ]; then
+    if ! command -v nginx >/dev/null 2>&1; then
+        echo "ERREUR: nginx n'est pas installe sur l'hote alors que RELOAD_NGINX=1"
+        exit 1
+    fi
+
+    nginx -t
+    systemctl reload nginx
+    echo "OK: nginx hote recharge"
+else
+    echo "INFO: rechargement nginx saute (definir RELOAD_NGINX=1 pour l'activer)."
 fi
 
 echo ""
@@ -25,6 +113,12 @@ echo "===================================="
 echo "  Deployment termine avec succes!"
 echo "===================================="
 echo ""
-echo "L'application est accessible sur:"
-echo "- https://ultimatebegles.fr"
+echo "Cibles verifiees:"
+echo "- React: $REACT_HEALTHCHECK_URL"
+echo "- UltiTimer: $ULTITIMER_HEALTHCHECK_URL"
 echo ""
+echo "Variables utiles:"
+echo "- ULTITIMER_APP_DIR pour pointer vers le second projet Docker"
+echo "- RELOAD_NGINX=1 pour tester/recharger nginx hote"
+echo "- ULTITIMER_HEALTHCHECK_URL pour adapter la verification UltiTimer"
+echo "- REACT_HEALTHCHECK_URL pour adapter la verification React"
