@@ -19,10 +19,8 @@ import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
 import type { CookieConsentHandle } from './components/CookieConsent';
 import SectionNavigator from './components/SectionNavigator';
-import UltiTimerEmbed from './components/UltiTimerEmbed';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
-import { ultiTimerAppUrl } from './config/ultitimer';
 
 const ScrollToHashElement = () => {
   const location = useLocation();
@@ -95,27 +93,16 @@ const UpdateHashOnScroll = () => {
   return null;
 };
 
-const UltiTimerRedirect: React.FC = () => {
-  useEffect(() => {
-    window.location.replace(ultiTimerAppUrl);
-  }, []);
-
-  return <UltiTimerEmbed />;
-};
-
 const AppLayout: React.FC<{
   onOpenCookieSettings: () => void;
   cookieConsentRef: React.RefObject<CookieConsentHandle | null>;
 }> = ({ onOpenCookieSettings, cookieConsentRef }) => {
-  const location = useLocation();
-  const isUltiTimerRoute = location.pathname === '/ultitimer' || location.pathname.startsWith('/ultitimer/');
-
   return (
     <>
       <ScrollToHashElement />
       <UpdateHashOnScroll />
-      {!isUltiTimerRoute && <Header />}
-      {!isUltiTimerRoute && <SectionNavigator />}
+      <Header />
+      <SectionNavigator />
       <Routes>
         <Route path="/" element={<>
           <Hero />
@@ -133,12 +120,9 @@ const AppLayout: React.FC<{
         </>} />
         {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/ultitimer" element={<UltiTimerRedirect />} />
-        <Route path="/ultitimer/" element={<UltiTimerRedirect />} />
-        <Route path="/ultitimer/*" element={<UltiTimerRedirect />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {!isUltiTimerRoute && <Footer onOpenCookieSettings={onOpenCookieSettings} />}
+      <Footer onOpenCookieSettings={onOpenCookieSettings} />
       <CookieConsent ref={cookieConsentRef} />
     </>
   );

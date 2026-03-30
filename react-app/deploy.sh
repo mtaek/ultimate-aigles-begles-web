@@ -14,23 +14,15 @@ else
 fi
 
 REACT_APP_DIR="${REACT_APP_DIR:-$SCRIPT_DIR}"
-if [ -z "${ULTITIMER_APP_DIR:-}" ]; then
-    if [ -d "/webapp/UltiTimer" ]; then
-        ULTITIMER_APP_DIR="/webapp/UltiTimer"
-    else
-        ULTITIMER_APP_DIR="$SCRIPT_DIR/../ultitimer-app"
-    fi
-fi
-ULTITIMER_HEALTHCHECK_URL="${ULTITIMER_HEALTHCHECK_URL:-http://127.0.0.1:8081/}"
 REACT_HEALTHCHECK_URL="${REACT_HEALTHCHECK_URL:-http://127.0.0.1:8080/}"
 RELOAD_NGINX="${RELOAD_NGINX:-0}"
 HEALTHCHECK_INITIAL_DELAY="${HEALTHCHECK_INITIAL_DELAY:-2}"
 HEALTHCHECK_RETRIES="${HEALTHCHECK_RETRIES:-20}"
 HEALTHCHECK_RETRY_DELAY="${HEALTHCHECK_RETRY_DELAY:-2}"
-DOCKER_PRUNE_BEFORE_BUILD="${DOCKER_PRUNE_BEFORE_BUILD:-1}"
+DOCKER_PRUNE_BEFORE_BUILD="${DOCKER_PRUNE_BEFORE_BUILD:-0}"
 
 echo "===================================="
-echo "  Deploiement Web + UltiTimer"
+echo "  Deploiement ultimatebegle.fr"
 echo "===================================="
 echo ""
 
@@ -83,14 +75,14 @@ check_http() {
     exit 1
 }
 
-deploy_stack() {
-    local name="$1"
-    local dir="$2"
-    local healthcheck_url="$3"
+deploy_react_site() {
+    local name="ultimatebegle.fr"
+    local dir="$REACT_APP_DIR"
+    local healthcheck_url="$REACT_HEALTHCHECK_URL"
 
     if [ ! -d "$dir" ]; then
-        echo "INFO: dossier $name introuvable ($dir), etape ignoree."
-        return 0
+        echo "ERREUR: dossier du site introuvable ($dir)."
+        exit 1
     fi
 
     local compose_file
@@ -115,13 +107,10 @@ deploy_stack() {
     echo ""
 }
 
-echo "[1/3] Deploiement UltiTimer (si configure)..."
-deploy_stack "UltiTimer" "$ULTITIMER_APP_DIR" "$ULTITIMER_HEALTHCHECK_URL"
+echo "[1/2] Deploiement du site ultimatebegle.fr..."
+deploy_react_site
 
-echo "[2/3] Deploiement application React..."
-deploy_stack "Application React" "$REACT_APP_DIR" "$REACT_HEALTHCHECK_URL"
-
-echo "[3/3] Rechargement nginx hote (optionnel)..."
+echo "[2/2] Rechargement nginx hote (optionnel)..."
 if [ "$RELOAD_NGINX" = "1" ]; then
     if ! command -v nginx >/dev/null 2>&1; then
         echo "ERREUR: nginx n'est pas installe sur l'hote alors que RELOAD_NGINX=1"
@@ -140,14 +129,12 @@ echo "===================================="
 echo "  Deployment termine avec succes!"
 echo "===================================="
 echo ""
-echo "Cibles verifiees:"
-echo "- React: $REACT_HEALTHCHECK_URL"
-echo "- UltiTimer: $ULTITIMER_HEALTHCHECK_URL"
+echo "Cible verifiee:"
+echo "- ultimatebegle.fr: $REACT_HEALTHCHECK_URL"
 echo ""
 echo "Variables utiles:"
-echo "- ULTITIMER_APP_DIR pour pointer vers le second projet Docker"
+echo "- REACT_APP_DIR pour pointer vers le dossier du site"
 echo "- RELOAD_NGINX=1 pour tester/recharger nginx hote"
-echo "- ULTITIMER_HEALTHCHECK_URL pour adapter la verification UltiTimer"
-echo "- REACT_HEALTHCHECK_URL pour adapter la verification React"
+echo "- REACT_HEALTHCHECK_URL pour adapter la verification HTTP"
 echo "- HEALTHCHECK_INITIAL_DELAY, HEALTHCHECK_RETRIES et HEALTHCHECK_RETRY_DELAY pour ajuster l'attente"
 echo "- DOCKER_PRUNE_BEFORE_BUILD=1 pour nettoyer les caches/images pendantes avant build"
