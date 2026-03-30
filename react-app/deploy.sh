@@ -18,6 +18,9 @@ ULTITIMER_APP_DIR="${ULTITIMER_APP_DIR:-$SCRIPT_DIR/../ultitimer-app}"
 ULTITIMER_HEALTHCHECK_URL="${ULTITIMER_HEALTHCHECK_URL:-http://localhost:8081/}"
 REACT_HEALTHCHECK_URL="${REACT_HEALTHCHECK_URL:-http://localhost:8080/ultitimer/}"
 RELOAD_NGINX="${RELOAD_NGINX:-0}"
+HEALTHCHECK_INITIAL_DELAY="${HEALTHCHECK_INITIAL_DELAY:-2}"
+HEALTHCHECK_RETRIES="${HEALTHCHECK_RETRIES:-20}"
+HEALTHCHECK_RETRY_DELAY="${HEALTHCHECK_RETRY_DELAY:-2}"
 
 echo "===================================="
 echo "  Deploiement Web + UltiTimer"
@@ -54,12 +57,23 @@ check_http() {
         return 0
     fi
 
-    if curl --fail --silent --show-error --location "$url" >/dev/null; then
-        echo "OK: $name repond sur $url"
-    else
-        echo "ERREUR: $name ne repond pas correctement sur $url"
-        exit 1
-    fi
+    local attempt=1
+
+    sleep "$HEALTHCHECK_INITIAL_DELAY"
+
+    while [ "$attempt" -le "$HEALTHCHECK_RETRIES" ]; do
+        if curl --fail --silent --show-error --location --max-time 10 "$url" >/dev/null; then
+            echo "OK: $name repond sur $url"
+            return 0
+        fi
+
+        echo "INFO: tentative $attempt/$HEALTHCHECK_RETRIES echouee pour $name ($url), nouvelle tentative dans ${HEALTHCHECK_RETRY_DELAY}s..."
+        attempt=$((attempt + 1))
+        sleep "$HEALTHCHECK_RETRY_DELAY"
+    done
+
+    echo "ERREUR: $name ne repond pas correctement sur $url apres $HEALTHCHECK_RETRIES tentatives"
+    exit 1
 }
 
 deploy_stack() {
@@ -122,3 +136,4 @@ echo "- ULTITIMER_APP_DIR pour pointer vers le second projet Docker"
 echo "- RELOAD_NGINX=1 pour tester/recharger nginx hote"
 echo "- ULTITIMER_HEALTHCHECK_URL pour adapter la verification UltiTimer"
 echo "- REACT_HEALTHCHECK_URL pour adapter la verification React"
+echo "- HEALTHCHECK_INITIAL_DELAY, HEALTHCHECK_RETRIES et HEALTHCHECK_RETRY_DELAY pour ajuster l'attente"
