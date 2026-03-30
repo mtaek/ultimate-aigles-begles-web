@@ -4,10 +4,10 @@ const UltiTimer: React.FC = () => {
   return (
     <div className="flex flex-col h-screen bg-gray-950">
       {/* Barre de navigation */}
-      <div className="flex items-center px-4 py-3 bg-blue-700 shadow-md shrink-0">
+      <div className="flex items-center px-4 py-1.5 bg-blue-500 shadow-md shrink-0">
         <a
           href="https://ultimatebegles.fr/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-white text-sm font-medium transition-colors duration-200"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-white text-sm font-medium transition-colors duration-200"
           aria-label="Retour sur ultimatebegles.fr"
         >
           <svg
@@ -20,7 +20,7 @@ const UltiTimer: React.FC = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          <img src="/images/logo_aigles_2025.png" alt="Aigles de Bègles" className="h-7 w-auto" />
+          <img src="/images/logo_aigles_2025.png" alt="Aigles de Bègles" className="h-5 w-auto" />
           ultimatebegles.fr
         </a>
       </div>
