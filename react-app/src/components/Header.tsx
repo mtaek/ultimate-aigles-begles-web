@@ -35,6 +35,9 @@ const Header: React.FC = () => {
             <li>
               <NavLink to="/quiz" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-secondary text-white' : 'bg-orange-100 text-secondary hover:bg-secondary hover:text-white'}`}>Quiz</NavLink>
             </li>
+            <li>
+              <NavLink to="/ultitimer/" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700 hover:bg-blue-700 hover:text-white'}`}>UltiTimer</NavLink>
+            </li>
             {/* <li>
               <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary' : ''}`}>Palmarès</NavLink>
             </li> */}
