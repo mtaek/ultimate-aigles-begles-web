@@ -15,8 +15,8 @@ fi
 
 REACT_APP_DIR="${REACT_APP_DIR:-$SCRIPT_DIR}"
 ULTITIMER_APP_DIR="${ULTITIMER_APP_DIR:-$SCRIPT_DIR/../ultitimer-app}"
-ULTITIMER_HEALTHCHECK_URL="${ULTITIMER_HEALTHCHECK_URL:-http://localhost:8081/}"
-REACT_HEALTHCHECK_URL="${REACT_HEALTHCHECK_URL:-http://localhost:8080/ultitimer/}"
+ULTITIMER_HEALTHCHECK_URL="${ULTITIMER_HEALTHCHECK_URL:-http://127.0.0.1:8081/}"
+REACT_HEALTHCHECK_URL="${REACT_HEALTHCHECK_URL:-http://127.0.0.1:8080/ultitimer/}"
 RELOAD_NGINX="${RELOAD_NGINX:-0}"
 HEALTHCHECK_INITIAL_DELAY="${HEALTHCHECK_INITIAL_DELAY:-2}"
 HEALTHCHECK_RETRIES="${HEALTHCHECK_RETRIES:-20}"
@@ -62,7 +62,7 @@ check_http() {
     sleep "$HEALTHCHECK_INITIAL_DELAY"
 
     while [ "$attempt" -le "$HEALTHCHECK_RETRIES" ]; do
-        if curl --fail --silent --show-error --location --max-time 10 "$url" >/dev/null; then
+        if curl --fail --silent --show-error --location --insecure --max-time 10 "$url" >/dev/null; then
             echo "OK: $name repond sur $url"
             return 0
         fi
