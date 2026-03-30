@@ -2,7 +2,7 @@ import React from 'react';
 
 const UltiTimer: React.FC = () => {
   return (
-    <div className="flex flex-col h-screen bg-gray-950">
+    <div className="flex flex-col h-dvh bg-gray-950">
       {/* Barre de navigation */}
       <div className="flex items-center px-4 py-1.5 bg-blue-500 shadow-md shrink-0">
         <a
@@ -26,7 +26,7 @@ const UltiTimer: React.FC = () => {
       </div>
 
       {/* Iframe UltiTimer */}
-      <div className="flex-1 w-full">
+      <div className="flex-1 min-h-0 w-full">
         <iframe
           src="https://ultitimer.appwrite.network/"
           title="UltiTimer"
