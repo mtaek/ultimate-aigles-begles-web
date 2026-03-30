@@ -21,6 +21,7 @@ RELOAD_NGINX="${RELOAD_NGINX:-0}"
 HEALTHCHECK_INITIAL_DELAY="${HEALTHCHECK_INITIAL_DELAY:-2}"
 HEALTHCHECK_RETRIES="${HEALTHCHECK_RETRIES:-20}"
 HEALTHCHECK_RETRY_DELAY="${HEALTHCHECK_RETRY_DELAY:-2}"
+DOCKER_PRUNE_BEFORE_BUILD="${DOCKER_PRUNE_BEFORE_BUILD:-1}"
 
 echo "===================================="
 echo "  Deploiement Web + UltiTimer"
@@ -92,6 +93,12 @@ deploy_stack() {
         return 0
     fi
 
+    if [ "$DOCKER_PRUNE_BEFORE_BUILD" = "1" ]; then
+        echo "[$name] Nettoyage Docker leger avant build..."
+        docker builder prune -f >/dev/null 2>&1 || true
+        docker image prune -f >/dev/null 2>&1 || true
+    fi
+
     echo "[$name] Build de l'image Docker..."
     run_compose "$dir" "$compose_file" build
 
@@ -137,3 +144,4 @@ echo "- RELOAD_NGINX=1 pour tester/recharger nginx hote"
 echo "- ULTITIMER_HEALTHCHECK_URL pour adapter la verification UltiTimer"
 echo "- REACT_HEALTHCHECK_URL pour adapter la verification React"
 echo "- HEALTHCHECK_INITIAL_DELAY, HEALTHCHECK_RETRIES et HEALTHCHECK_RETRY_DELAY pour ajuster l'attente"
+echo "- DOCKER_PRUNE_BEFORE_BUILD=1 pour nettoyer les caches/images pendantes avant build"
