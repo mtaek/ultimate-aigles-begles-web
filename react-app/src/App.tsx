@@ -13,7 +13,7 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Actualites from './components/Actualites';
 import Footer from './components/Footer';
-import Palmares from './components/Palmares';
+//import Palmares from './components/Palmares';
 import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
@@ -93,6 +93,18 @@ const UpdateHashOnScroll = () => {
   return null;
 };
 
+// Forces a real browser navigation so nginx (not React Router) handles /ultitimer/
+const HardRedirect: React.FC<{ to: string }> = ({ to }) => {
+  useEffect(() => { window.location.replace(to); }, [to]);
+  return null;
+};
+
+// Forces a full page reload so nginx serves the current path (e.g. /ultitimer/*)
+const HardReload: React.FC = () => {
+  useEffect(() => { window.location.reload(); }, []);
+  return null;
+};
+
 const App: React.FC = () => {
   useReveal();
   const cookieConsentRef = useRef<CookieConsentHandle>(null);
@@ -122,8 +134,10 @@ const App: React.FC = () => {
           <Actualites />
           <FAQ />
         </>} />
-        <Route path="/palmares" element={<Palmares />} />
+        {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/ultitimer" element={<HardRedirect to="/ultitimer/" />} />
+        <Route path="/ultitimer/*" element={<HardReload />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer onOpenCookieSettings={handleOpenCookieSettings} />
