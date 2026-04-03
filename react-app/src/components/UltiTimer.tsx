@@ -28,7 +28,7 @@ const UltiTimer: React.FC = () => {
       {/* Iframe UltiTimer */}
       <div className="flex-1 min-h-0 w-full">
         <iframe
-          src="https://ultitimer.appwrite.network/"
+          src="https://ultitimer.akaria.fr/"
           title="UltiTimer"
           className="w-full h-full border-0"
           allow="fullscreen"
