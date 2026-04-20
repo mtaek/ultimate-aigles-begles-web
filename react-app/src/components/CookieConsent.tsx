@@ -16,56 +16,23 @@ const CookieConsent = forwardRef<CookieConsentHandle>((_props, ref) => {
   }));
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setShowBanner(true);
-    } else if (consent === 'accepted') {
-      loadAnalytics();
-    }
+    // Charge GoatCounter par défaut (pas de consentement nécessaire)
+    loadAnalytics();
   }, []);
 
   const loadAnalytics = () => {
-    // Charge Google Analytics uniquement si consentement donné
-    if (!(window as any).gtag) {
+    // Charge GoatCounter uniquement si consentement donné
+    if (!(window as any).goatcounter) {
       const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZF937FTEQ1';
+      script.setAttribute('data-goatcounter', 'https://goatcounter.akaria.fr/count');
+      script.src = '//goatcounter.akaria.fr/count.js';
       script.async = true;
       document.head.appendChild(script);
-
-      script.onload = () => {
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        function gtag(...args: any[]) {
-          (window as any).dataLayer.push(args);
-        }
-        (window as any).gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-ZF937FTEQ1', {
-          anonymize_ip: true,
-          cookie_flags: 'SameSite=None;Secure'
-        });
-      };
     }
   };
 
-  const acceptAll = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
-    loadAnalytics();
-    setShowBanner(false);
-  };
-
-  const rejectAll = () => {
-    localStorage.setItem('cookieConsent', 'rejected');
-    setShowBanner(false);
-  };
-
-  const savePreferences = (analytics: boolean) => {
-    if (analytics) {
-      localStorage.setItem('cookieConsent', 'accepted');
-      loadAnalytics();
-    } else {
-      localStorage.setItem('cookieConsent', 'rejected');
-    }
-    setShowSettings(false);
+  const dismissBanner = () => {
+    localStorage.setItem('cookieConsent', 'acknowledged');
     setShowBanner(false);
   };
 
@@ -83,23 +50,16 @@ const CookieConsent = forwardRef<CookieConsentHandle>((_props, ref) => {
                 Respect de votre vie privée
               </h3>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic via Google Analytics. 
-                Les cookies essentiels (cache du blog) sont toujours actifs et ne nécessitent pas de consentement.
+                Nous utilisons des cookies essentiels (cache du blog) pour améliorer votre expérience.
+                Notre analyse de trafic via GoatCounter ne nécessite pas de consentement.
               </p>
               <div className="cookie-consent-actions">
                 <button
-                  onClick={acceptAll}
+                  onClick={dismissBanner}
                   className="btn-accept"
                 >
                   <i className="fas fa-check mr-2"></i>
-                  Accepter
-                </button>
-                <button
-                  onClick={rejectAll}
-                  className="btn-reject"
-                >
-                  <i className="fas fa-times mr-2"></i>
-                  Refuser
+                  Compris
                 </button>
               </div>
             </div>
@@ -130,33 +90,13 @@ const CookieConsent = forwardRef<CookieConsentHandle>((_props, ref) => {
                 </div>
               </div>
 
-              <div className="cookie-category">
-                <div className="cookie-category-header">
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Cookies d'analyse</h4>
-                    <p className="text-sm text-gray-600">Google Analytics - Statistiques anonymes de visite</p>
-                  </div>
-                  <label className="cookie-toggle">
-                    <input
-                      type="checkbox"
-                      id="analytics-toggle"
-                      defaultChecked={true}
-                    />
-                    <span className="cookie-toggle-slider"></span>
-                  </label>
-                </div>
-              </div>
-
               <div className="cookie-consent-actions mt-6">
                 <button
-                  onClick={() => {
-                    const analyticsToggle = document.getElementById('analytics-toggle') as HTMLInputElement;
-                    savePreferences(analyticsToggle.checked);
-                  }}
+                  onClick={dismissBanner}
                   className="btn-accept"
                 >
-                  <i className="fas fa-save mr-2"></i>
-                  Enregistrer mes choix
+                  <i className="fas fa-check mr-2"></i>
+                  Fermer
                 </button>
               </div>
             </div>
