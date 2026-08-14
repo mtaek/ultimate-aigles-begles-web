@@ -114,8 +114,8 @@ const AppLayout: React.FC<{
           <Tarifs />
           <Calendrier />
           <HarpiesPreview />
-          <Contact />
           <Avis />
+          <Contact />
           <Actualites />
           <FAQ />
         </>} />

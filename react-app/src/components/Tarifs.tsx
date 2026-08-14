@@ -7,11 +7,12 @@ const Tarifs: React.FC = () => {
   const startYear = currentMonth >= 8 ? currentYear : currentYear - 1;
   const seasonLabel = `${startYear}-${startYear + 1}`;
   const rows = [
-    { categorie: 'Adulte', type: 'Compétition', fffd: 58, assurance: 4.5, association: 55 },
-    { categorie: 'Adulte', type: 'Loisir', fffd: 38, assurance: 4.5, association: 55 },
-    { categorie: 'U17/U20', type: 'Compétition', fffd: 48, assurance: 4.5, association: 55 },
-    { categorie: 'U17/U20', type: 'Loisir', fffd: 38, assurance: 4.5, association: 55 },
-    { categorie: 'U11/13/15', type: 'Compét/Loisir', fffd: 33, assurance: 4.5, association: 55 },
+    { categorie: 'Adulte', type: 'Compétition', total: 121.5 },
+    { categorie: 'Adulte', type: 'Loisir', total: 97.5 },
+    { categorie: 'U17/U20', type: 'Compétition', total: 111.5 },
+    { categorie: 'U17/U20', type: 'Loisir', total: 97.5 },
+    { categorie: 'U11/U13/U15', type: 'Compét/Loisir', total: 96.5 },
+    { categorie: 'Discgolf', type: 'Compétition', total: 60 },
   ];
 
   return (
@@ -29,18 +30,15 @@ const Tarifs: React.FC = () => {
         <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
           {/* Cards layout: one block per line (compact) */}
           <div className="grid grid-cols-1 gap-3">
-            {rows.map((r) => {
-              const total = r.fffd + r.assurance + r.association;
-              return (
+            {rows.map((r) => (
                 <div key={`${r.categorie}-${r.type}`} className="border border-gray-200 rounded-lg px-4 py-3 shadow-sm">
                   <div className="flex items-center">
                     <span className="text-primary font-semibold flex-1 text-sm md:text-base">{r.categorie}</span>
                     <span className="text-black font-bold text-sm md:text-base text-center flex-1">{r.type}</span>
-                    <span className="text-secondary font-bold text-base md:text-lg text-right flex-1">{total.toFixed(2).replace('.', ',')}€</span>
+                    <span className="text-secondary font-bold text-base md:text-lg text-right flex-1">{r.total.toFixed(2).replace('.', ',')}€</span>
                   </div>
                 </div>
-              );
-            })}
+            ))}
           </div>
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">

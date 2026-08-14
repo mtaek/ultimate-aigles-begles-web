@@ -30,11 +30,15 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Participez-vous à des compétitions ?",
-      answer: "Oui ! Le club participe à des compétitions régionales et nationales tout au long de la saison. Nous avons des équipes en championnat outdoor/extérieur, indoor/intérieur et beach/sable. Consultez notre palmarès pour voir nos résultats."
+      answer: "Oui ! Le club participe à des compétitions régionales et nationales tout au long de la saison. Nous avons des équipes en championnat outdoor/extérieur, indoor/intérieur et beach/sable."
     },
     {
       question: "Qu'est-ce que le tournoi des Harpies ?",
       answer: "Les Harpies est notre tournoi annuel 100% féminin en salle. C'est un événement convivial qui rassemble les meilleures équipes féminines de la région. Plus d'infos dans la section dédiée."
+    },
+    {
+      question: "Proposez-vous du Discgolf ?",
+      answer: "Oui ! Le club propose également une section Discgolf en compétition. Le Discgolf est un sport de précision où l'on lance des disques vers des cibles (corbeilles) sur un parcours. Une licence compétition Discgolf est disponible."
     }
   ];
 
@@ -46,8 +50,8 @@ const FAQ: React.FC = () => {
     if (lower.includes('horaire') || lower.includes("entraînement")) {
       return { href: '/#entrainements', label: 'Voir les entraînements' };
     }
-    if (lower.includes('palmarès') || lower.includes('compétition')) {
-      return { href: '/palmares', label: 'Voir le palmarès' };
+    if (lower.includes('compétition')) {
+      return { href: '/#calendrier', label: 'Voir le calendrier' };
     }
     if (lower.includes('harpies')) {
       return { href: '/#harpies', label: 'Découvrir les Harpies' };

@@ -552,7 +552,7 @@ const Contact: React.FC = () => {
               </div>
               <div className="text-center">
                 <div className="font-semibold text-gray-800 text-lg mb-2">Email</div>
-                <a href="#" onClick={copyEmail} className="text-blue-500 text-sm hover:underline cursor-pointer">
+                <a href="#" onClick={copyEmail} title="Copier l'email" className="text-blue-500 text-sm hover:underline cursor-pointer">
                   {copied ? 'Email copié !' : displayEmail()}
                 </a>
               </div>
