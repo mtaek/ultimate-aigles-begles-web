@@ -13,7 +13,6 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Actualites from './components/Actualites';
 import Footer from './components/Footer';
-//import Palmares from './components/Palmares';
 import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
 import CookieConsent from './components/CookieConsent';
@@ -119,7 +118,6 @@ const AppLayout: React.FC<{
           <Actualites />
           <FAQ />
         </>} />
-        {/* <Route path="/palmares" element={<Palmares />} /> */}
         <Route path="/quiz" element={<Quiz />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
