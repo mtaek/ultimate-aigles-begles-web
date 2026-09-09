@@ -103,6 +103,12 @@ deploy_react_site() {
     echo "[$name] Demarrage des conteneurs..."
     run_compose "$dir" "$compose_file" up -d
 
+    # S'assurer que le conteneur est connecté au réseau Traefik
+    if docker network inspect traefik >/dev/null 2>&1; then
+        echo "[$name] Connexion au réseau Traefik..."
+        docker network connect traefik ultimate-aigles-begles || echo "INFO: Conteneur déjà connecté au réseau Traefik"
+    fi
+
     check_http "$name" "$healthcheck_url"
     echo ""
 }

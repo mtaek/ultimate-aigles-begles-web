@@ -9,9 +9,12 @@ services:
       - "8080:80"
     networks:
       - webapp-network
+      - traefik
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
   webapp-network:
+    external: true
+  traefik:
     external: true
