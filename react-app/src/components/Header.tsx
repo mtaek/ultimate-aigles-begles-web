@@ -38,9 +38,6 @@ const Header: React.FC = () => {
             <li>
               <NavLink to="/ultitimer/" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700 hover:bg-blue-700 hover:text-white'}`}>UltiTimer</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/palmares" onClick={() => setOpen(false)} className={({isActive}) => `hover:text-primary whitespace-nowrap ${isActive ? 'text-primary' : ''}`}>Palmarès</NavLink>
-            </li> */}
             <li><a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Boutique <i className="fas fa-external-link-alt external-icon" /></a></li>
             <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
           </ul>

@@ -12,7 +12,7 @@ const Tarifs: React.FC = () => {
     { categorie: 'Adulte', type: 'Loisir', total: 97.5 },
     { categorie: 'U17/U20', type: 'Compétition', total: 111.5 },
     { categorie: 'U17/U20', type: 'Loisir', total: 97.5 },
-    { categorie: 'U11/U13/U15', type: 'Compét/Loisir', total: 96.5 },
+    { categorie: 'U10/U13/U15', type: 'Compét/Loisir', total: 96.5 },
     { categorie: 'Discgolf', type: 'Compétition', total: 60 },
   ];
 

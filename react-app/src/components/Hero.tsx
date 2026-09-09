@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
 
   useSEO({
     title: 'Accueil',
-    description: 'Club d\'Ultimate Frisbee à Bègles près de Bordeaux. Entraînements tous niveaux : débutants, loisir, compétition. Sport mixte et convivial. Rejoignez-nous !',
+    description: 'Club d\'Ultimate Frisbee à Bègles près de Bordeaux. Entraînements tous niveaux : débutants, loisir, compétition. Sport mixte, féminin et convivial. Rejoignez-nous !',
   });
 
   React.useEffect(() => {

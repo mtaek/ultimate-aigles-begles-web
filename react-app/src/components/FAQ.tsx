@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface FAQItem {
   question: string;
@@ -41,6 +41,29 @@ const FAQ: React.FC = () => {
       answer: "Oui ! Le club propose également une section Discgolf en compétition. Le Discgolf est un sport de précision où l'on lance des disques vers des cibles (corbeilles) sur un parcours. Une licence compétition Discgolf est disponible."
     }
   ];
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getLinkForQuestion = (q: string): { href: string; label: string } | null => {
     const lower = q.toLowerCase();
