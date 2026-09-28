@@ -31,7 +31,6 @@ const Footer: React.FC<FooterProps> = ({ onOpenCookieSettings }) => (
             <a href="/#avis">Avis</a>
             <a href="/#actualites">Actualités</a>
             <a href="/#faq">FAQ</a>
-            <a href="/quiz">Quiz</a>
             <a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer">
               Boutique <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>
