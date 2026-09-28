@@ -32,12 +32,6 @@ const Header: React.FC = () => {
         </div>
         <nav className="flex items-center gap-4">
           <ul className={`font-semibold items-center ${open ? 'flex flex-col fixed inset-0 top-16 bg-white/80 backdrop-blur-sm w-screen h-screen p-8 shadow z-50 gap-6 text-xl sm:text-2xl justify-start' : 'hidden min-[1000px]:flex gap-3 xl:gap-6 text-xs min-[1000px]:text-sm xl:text-base'}`}>
-            <li>
-              <NavLink to="/quiz" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-secondary text-white' : 'bg-orange-100 text-secondary hover:bg-secondary hover:text-white'}`}>Quiz</NavLink>
-            </li>
-            <li>
-              <NavLink to="/ultitimer/" onClick={() => setOpen(false)} className={({isActive}) => `px-3 py-1.5 rounded-md transition whitespace-nowrap ${isActive ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700 hover:bg-blue-700 hover:text-white'}`}>UltiTimer</NavLink>
-            </li>
             <li><a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Boutique <i className="fas fa-external-link-alt external-icon" /></a></li>
             <li><a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary whitespace-nowrap">Blog <i className="fas fa-external-link-alt external-icon" /></a></li>
           </ul>
