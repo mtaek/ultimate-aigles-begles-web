@@ -19,6 +19,7 @@ import CookieConsent from './components/CookieConsent';
 import type { CookieConsentHandle } from './components/CookieConsent';
 import SectionNavigator from './components/SectionNavigator';
 import UltiTimer from './components/UltiTimer';
+import UltiTactics from './components/UltiTactics';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
@@ -139,6 +140,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/ultitimer/*" element={<UltiTimer />} />
+        <Route path="/ulti-tactics/*" element={<UltiTactics />} />
         <Route
           path="/*"
           element={
