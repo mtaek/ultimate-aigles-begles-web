@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Club from './components/Club';
 import Ultimate from './components/Ultimate';
 import Terrains from './components/Terrains';
 import Entrainements from './components/Entrainements';
+import Tarifs from './components/Tarifs';
 import Calendrier from './components/Calendrier';
+import HarpiesPreview from './components/HarpiesPreview';
 import Avis from './components/Avis';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import Actualites from './components/Actualites';
 import Footer from './components/Footer';
-import Palmares from './components/Palmares';
-import Harpies from './components/Harpies';
+import Quiz from './components/Quiz';
 import NotFound from './components/NotFound';
+import CookieConsent from './components/CookieConsent';
+import type { CookieConsentHandle } from './components/CookieConsent';
+import SectionNavigator from './components/SectionNavigator';
+import UltiTimer from './components/UltiTimer';
+import UltiTactics from './components/UltiTactics';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
@@ -86,13 +94,16 @@ const UpdateHashOnScroll = () => {
   return null;
 };
 
-const App: React.FC = () => {
-  useReveal();
+const AppLayout: React.FC<{
+  onOpenCookieSettings: () => void;
+  cookieConsentRef: React.RefObject<CookieConsentHandle | null>;
+}> = ({ onOpenCookieSettings, cookieConsentRef }) => {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToHashElement />
       <UpdateHashOnScroll />
       <Header />
+      <SectionNavigator />
       <Routes>
         <Route path="/" element={<>
           <Hero />
@@ -100,15 +111,46 @@ const App: React.FC = () => {
           <Ultimate />
           <Terrains />
           <Entrainements />
+          <Tarifs />
           <Calendrier />
-          <Contact />
+          <HarpiesPreview />
           <Avis />
+          <Contact />
+          <Actualites />
+          <FAQ />
         </>} />
-        <Route path="/palmares" element={<Palmares />} />
-        <Route path="/harpies" element={<Harpies />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer onOpenCookieSettings={onOpenCookieSettings} />
+      <CookieConsent ref={cookieConsentRef} />
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  useReveal();
+  const cookieConsentRef = useRef<CookieConsentHandle>(null);
+
+  const handleOpenCookieSettings = () => {
+    cookieConsentRef.current?.openSettings();
+  };
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/ultitimer/*" element={<UltiTimer />} />
+        <Route path="/ulti-tactics/*" element={<UltiTactics />} />
+        <Route
+          path="/*"
+          element={
+            <AppLayout
+              onOpenCookieSettings={handleOpenCookieSettings}
+              cookieConsentRef={cookieConsentRef}
+            />
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };

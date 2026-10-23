@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'custom': '900px',
+      },
       fontFamily: {
         sans: ['Open Sans', 'Roboto', 'ui-sans-serif', 'system-ui'],
       },

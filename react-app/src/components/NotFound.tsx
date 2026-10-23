@@ -17,6 +17,7 @@ const NotFound: React.FC = () => {
               src="/images/logo_aigles_2025.png" 
               alt="Logo Les Aigles de Bègles" 
               className="w-24 mx-auto opacity-50"
+              loading="lazy"
             />
           </div>
 

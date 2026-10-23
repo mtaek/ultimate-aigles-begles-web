@@ -1,35 +1,56 @@
 import React from 'react';
 
-const Footer: React.FC = () => (
+interface FooterProps {
+  onOpenCookieSettings?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenCookieSettings }) => (
   <footer>
     <div className="container">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 footer-content">
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="/#accueil" className="cursor-pointer">
-            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-32 hover:opacity-80 transition" />
+            <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-32 hover:opacity-80 transition" loading="lazy" />
           </a>
         </div>
 
         {/* Navigation */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 flex-1 max-w-2xl">
           <h3 className="font-bold text-white mb-2">Navigation</h3>
-          <div className="flex flex-wrap gap-4 footer-links text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 footer-links text-sm">
+            <a href="/#accueil">Accueil</a>
             <a href="/#club">Le Club</a>
+            <a href="/#harpies">Les Harpies</a>
             <a href="/#ultimate">L'Ultimate</a>
             <a href="/#terrains">Terrains</a>
             <a href="/#entrainements">Entraînements</a>
             <a href="/#calendrier">Calendrier</a>
-            {/*<a href="/palmares">Palmarès</a>*/}
-            {/*<a href="/harpies">Harpies</a>*/}
+            <a href="/#tarifs">Tarifs</a>
+            <a href="/#contact">Contact</a>
+            <a href="/#avis">Avis</a>
+            <a href="/#actualites">Actualités</a>
+            <a href="/#faq">FAQ</a>
+            <a href="https://www.helloasso.com/associations/ultimate-begles/boutiques/boutique-des-aigles-de-begles" target="_blank" rel="noopener noreferrer">
+              Boutique <i className="fas fa-external-link-alt text-xs ml-1" />
+            </a>
             <a href="https://ultimatebegles.blogspot.com/" target="_blank" rel="noopener noreferrer">
               Blog <i className="fas fa-external-link-alt text-xs ml-1" />
             </a>
+            {onOpenCookieSettings && (
+              <button 
+                onClick={onOpenCookieSettings}
+                className="text-left hover:text-primary transition"
+                aria-label="Gérer les cookies"
+              >
+                Cookies
+              </button>
+            )}
           </div>
         </div>
 
         {/* Réseaux sociaux */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 flex-shrink-0">
           <h3 className="font-bold text-white mb-2">Suivez-nous</h3>
           <div className="flex gap-4 text-2xl">
             <a href="https://www.facebook.com/aiglesdebegles" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition" aria-label="Facebook">
@@ -52,23 +73,26 @@ const Footer: React.FC = () => (
           
           {/* Partenaires */}
           <div className="flex flex-wrap items-center gap-6">
-            <a href="https://www.zulip.com/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/zulip.png" alt="Zulip" className="h-8 w-auto object-contain" />
+            <a href="https://www.lagrandebouche.fr/" target="_blank" rel="noopener noreferrer" title="La Grande Bouche" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/Logo-LaGrandBouche.svg" alt="La Grande Bouche" className="h-8 w-auto object-contain bg-white p-1" loading="lazy" />
             </a>
-            <a href="https://www.gironde.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/logo-gironde.png" alt="Département de la Gironde" className="h-8 w-auto object-contain" />
+            <a href="https://www.zulip.com/" target="_blank" rel="noopener noreferrer" title="Zulip" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/zulip.png" alt="Zulip" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
-            <a href="https://www.begles.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/logo-ville-begles.jpg" alt="Ville de Bègles" className="h-8 w-auto object-contain" />
+            <a href="https://www.gironde.fr/" target="_blank" rel="noopener noreferrer" title="Département de la Gironde" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/logo-gironde.png" alt="Département de la Gironde" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
-            <a href="https://liguenouvelle-aquitaine.ffdisque.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/LFDNA.png" alt="Ligue Flying Disc de Nouvelle-Aquitaine" className="h-8 w-auto object-contain" />
+            <a href="https://www.begles.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bègles" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/logo-ville-begles.jpg" alt="Ville de Bègles" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
-            <a href="https://www.ffdf.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/FFDF.png" alt="Fédération Flying Disc France" className="h-8 w-auto object-contain" />
+            <a href="https://liguenouvelle-aquitaine.ffdisque.fr/" target="_blank" rel="noopener noreferrer" title="Ligue Flying Disc de Nouvelle-Aquitaine" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/LFDNA.png" alt="Ligue Flying Disc de Nouvelle-Aquitaine" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
-            <a href="https://www.creditmutuel.fr/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-              <img src="/images/partenaires/credit-mutuel-du-sud-ouest.jpg" alt="Crédit Mutuel du Sud-Ouest" className="h-8 w-auto object-contain" />
+            <a href="https://www.ffdf.fr/" target="_blank" rel="noopener noreferrer" title="Fédération Flying Disc France" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/FFDF.png" alt="Fédération Flying Disc France" className="h-8 w-auto object-contain" loading="lazy" />
+            </a>
+            <a href="https://www.cmso.com/" target="_blank" rel="noopener noreferrer" title="Crédit Mutuel du Sud-Ouest" className="hover:opacity-80 transition">
+              <img src="/images/partenaires/credit-mutuel-du-sud-ouest.jpg" alt="Crédit Mutuel du Sud-Ouest" className="h-8 w-auto object-contain" loading="lazy" />
             </a>
           </div>
         </div>

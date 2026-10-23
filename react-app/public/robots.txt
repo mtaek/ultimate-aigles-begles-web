@@ -7,3 +7,8 @@ Sitemap: https://ultimatebegles.fr/sitemap.xml
 
 # Disallow admin or backend routes (if any in the future)
 # Disallow: /admin
+Disallow: /stats
+Disallow: /zulip
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1
