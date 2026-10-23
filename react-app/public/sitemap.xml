@@ -8,6 +8,14 @@
     <priority>1.0</priority>
   </url>
   
+  <!-- Tournoi BAB'HAT -->
+  <url>
+    <loc>https://ultimatebegles.fr/bab-hat</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Page Quiz -->
   <url>
     <loc>https://ultimatebegles.fr/quiz</loc>

@@ -9,6 +9,8 @@ Sitemap: https://ultimatebegles.fr/sitemap.xml
 # Disallow: /admin
 Disallow: /stats
 Disallow: /zulip
+# Composition des équipes BAB'HAT (noms des joueurs) : ne pas indexer
+Disallow: /images/babhat/*/equipes
 
 # Crawl delay to prevent server overload
 Crawl-delay: 1
