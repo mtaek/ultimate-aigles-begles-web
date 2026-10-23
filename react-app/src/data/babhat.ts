@@ -140,7 +140,7 @@ export const editions: BabHatEdition[] = [
     },
     images: {
       plan: '/images/babhat/2026-2027/3terrains.png',
-      equipes: '/images/babhat/2026-2027/equipes.jpeg',
+      equipes: '/images/babhat/2026-2027/equipes.png',
     },
   },
 ];

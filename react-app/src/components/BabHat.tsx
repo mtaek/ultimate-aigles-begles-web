@@ -331,7 +331,7 @@ const BabHat: React.FC = () => {
 
         {/* Équipes : image uniquement, noms jamais en texte */}
         <Section id="equipes" title="Les équipes">
-          <ZoomableImage src={edition.images.equipes} alt="Composition des 6 équipes" width={1341} height={885} />
+          <ZoomableImage src={edition.images.equipes} alt="Composition des 6 équipes" width={1341} height={800} />
         </Section>
 
         {/* After */}
