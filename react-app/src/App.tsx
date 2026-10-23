@@ -20,14 +20,14 @@ import type { CookieConsentHandle } from './components/CookieConsent';
 import SectionNavigator from './components/SectionNavigator';
 import UltiTimer from './components/UltiTimer';
 import UltiTactics from './components/UltiTactics';
+import BabHat from './components/BabHat';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useReveal } from './hooks/useReveal';
 
 const ScrollToHashElement = () => {
-  const location = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    const hash = location.hash;
     if (hash) {
       setTimeout(() => {
         const element = document.querySelector(hash);
@@ -38,7 +38,7 @@ const ScrollToHashElement = () => {
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location]);
+  }, [pathname, hash]);
 
   return null;
 };
@@ -120,6 +120,7 @@ const AppLayout: React.FC<{
           <FAQ />
         </>} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/bab-hat" element={<BabHat />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer onOpenCookieSettings={onOpenCookieSettings} />
