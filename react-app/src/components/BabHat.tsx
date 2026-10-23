@@ -149,7 +149,7 @@ const TeamProgram: React.FC<{ team: number }> = ({ team }) => {
         ))}
         <li className="grid grid-cols-[3.5rem_1fr] gap-3">
           <span className="font-bold tabular-nums text-orange-700">{edition.finals.time}</span>
-          <span className="text-gray-800">Match de classement, terrain selon ta place dans la poule, haut clair si ton équipe est la mieux classée</span>
+          <span className="text-gray-800">Match de classement, terrain selon ta place dans la poule. Si ton équipe est la mieux classée, elle choisit sa couleur de haut</span>
         </li>
       </ol>
     </div>
@@ -289,7 +289,7 @@ const BabHat: React.FC = () => {
             <span>Matchs de 30 min, 10 min de pause. Fin vers {edition.endTime}.</span>
           </p>
           <p className="mt-2 text-sm text-gray-700">
-            Matchs de classement : l'équipe la mieux classée joue en haut clair.
+            Matchs de classement : l'équipe la mieux classée choisit sa couleur de haut.
           </p>
         </Section>
 

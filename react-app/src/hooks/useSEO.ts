@@ -25,8 +25,8 @@ export const useSEO = ({ title, description, canonical, ogImage }: SEOProps = {}
       }
     }
 
-    // Canonical URL
-    const canonicalUrl = canonical || `https://ultimatebegles.fr${location.pathname}${location.hash}`;
+    // Canonical URL : jamais de #section ni de paramètres (ex. ?equipe=3)
+    const canonicalUrl = canonical || `https://ultimatebegles.fr${location.pathname}`;
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (linkCanonical) {
       linkCanonical.setAttribute('href', canonicalUrl);
@@ -61,5 +61,5 @@ export const useSEO = ({ title, description, canonical, ogImage }: SEOProps = {}
         ogImageMeta.setAttribute('content', ogImage);
       }
     }
-  }, [title, description, canonical, ogImage, location]);
+  }, [title, description, canonical, ogImage, location.pathname]);
 };

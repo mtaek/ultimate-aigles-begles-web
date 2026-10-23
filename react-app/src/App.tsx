@@ -68,9 +68,12 @@ const UpdateHashOnScroll = () => {
         }
       });
 
-      // Mettre à jour le hash si nécessaire
-      if (currentSection && window.location.hash !== `#${currentSection}`) {
-        window.history.replaceState(null, '', `#${currentSection}`);
+      // En haut de page (section « accueil ») : adresse propre, sans #accueil.
+      // Plus bas : #club, #tarifs… pour pouvoir partager le lien d'une section.
+      const targetHash = currentSection && currentSection !== 'accueil' ? `#${currentSection}` : '';
+      if (window.location.hash !== targetHash) {
+        const url = `${window.location.pathname}${window.location.search}${targetHash}`;
+        window.history.replaceState(window.history.state, '', url);
       }
     };
 

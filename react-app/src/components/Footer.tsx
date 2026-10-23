@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenCookieSettings }) => (
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 footer-content">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <a href="/#accueil" className="cursor-pointer">
+          <a href="/" className="cursor-pointer">
             <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-32 hover:opacity-80 transition" loading="lazy" />
           </a>
         </div>
@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenCookieSettings }) => (
         <div className="flex flex-col gap-3 flex-1 max-w-2xl">
           <h3 className="font-bold text-white mb-2">Navigation</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 footer-links text-sm">
-            <a href="/#accueil">Accueil</a>
+            <a href="/">Accueil</a>
             <a href="/#club">Le Club</a>
             <a href="/#harpies">Les Harpies</a>
             <a href="/#ultimate">L'Ultimate</a>

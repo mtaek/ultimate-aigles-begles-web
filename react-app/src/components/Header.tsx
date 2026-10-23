@@ -6,19 +6,17 @@ const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  // Logo : retour en haut de l'accueil, adresse « / » sans #accueil
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setOpen(false);
-    
-    // Si on est déjà sur la page d'accueil
     if (location.pathname === '/') {
-      const element = document.querySelector(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.location.hash || window.location.search) {
+        window.history.replaceState(window.history.state, '', '/');
       }
     } else {
-      // Si on est sur une autre page, naviguer vers l'accueil avec le hash
-      navigate('/' + targetId);
+      navigate('/');
     }
   };
 
@@ -26,7 +24,7 @@ const Header: React.FC = () => {
     <header className="bg-white shadow sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
-          <a href="/#accueil" onClick={(e) => smoothScroll(e, '#accueil')} className="cursor-pointer">
+          <a href="/" onClick={goHome} className="cursor-pointer">
             <img src="/images/logo_aigles_2025.png" alt="Logo Les Aigles de Bègles" className="w-12" loading="eager" />
           </a>
         </div>

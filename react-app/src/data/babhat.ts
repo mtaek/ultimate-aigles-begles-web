@@ -91,7 +91,7 @@ export const editions: BabHatEdition[] = [
     timeline: [
       { time: '14h30', label: 'Rendez-vous sur place', detail: 'Crampons, briefing et échauffement collectif' },
       { time: '15h00', label: 'Début des matchs', detail: 'Poule unique, 5 matchs par équipe', highlight: true },
-      { time: '18h20', label: 'Matchs de classement', detail: 'Finale sur le terrain Bègles, la mieux classée en haut clair' },
+      { time: '18h20', label: 'Matchs de classement', detail: 'Finale sur le terrain Bègles, la mieux classée choisit sa couleur' },
       { time: '19h00', label: 'After et auberge espagnole', detail: 'ZÀP de Bègles' },
     ],
     format: [
